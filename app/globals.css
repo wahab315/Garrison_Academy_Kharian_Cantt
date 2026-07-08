@@ -516,10 +516,11 @@ nav.links {
 }
 .hero .motto {
   font-family: var(--font-naskh), serif;
-  direction: rtl;
   font-size: 1.35rem;
   color: var(--gold-300);
   margin-bottom: 4px;
+  margin-left: 4rem;
+  padding: 2rem 0rem;
 }
 .hero .motto-tr {
   font-style: italic;
