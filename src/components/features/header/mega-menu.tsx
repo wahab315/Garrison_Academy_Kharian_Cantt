@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Box from "@/common/box";
 import Typography from "@/common/typography";
-import type { MegaLink } from "@/data/data";
+import type { MegaLink } from "@/data/navigation";
 
 export type MegaMenuProps = {
   id: string;

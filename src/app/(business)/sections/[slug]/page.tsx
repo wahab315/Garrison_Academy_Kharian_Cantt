@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import SectionDetail from "@/components/SectionDetail";
-import { SECTIONS, type SectionKey } from "@/data/data";
+import { SECTIONS, type SectionKey } from "@/data/sections";
 
 export function generateStaticParams() {
   return (Object.keys(SECTIONS) as SectionKey[]).map((slug) => ({ slug }));

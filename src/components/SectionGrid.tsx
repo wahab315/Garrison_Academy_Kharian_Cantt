@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { HOME_GRID } from "@/data/data";
+import { homeExploreContent } from "@/data/content/home/content.home-explore";
 
 export default function SectionGrid() {
   return (
     <div className="grid g4">
-      {HOME_GRID.map((s) => (
-        <Link key={s.href} className="card link" href={s.href}>
+      {homeExploreContent.cards.map((s) => (
+        <Link key={s.href} className="card link" href={s.href!}>
           <div className="ic">{s.icon}</div>
-          <h3 style={{ fontSize: "1.12rem" }}>{s.label}</h3>
+          <h3 style={{ fontSize: "1.12rem" }}>{s.title}</h3>
           <p>{s.desc}</p>
           <span className="more">Open →</span>
         </Link>

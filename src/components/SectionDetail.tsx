@@ -1,6 +1,6 @@
 import Link from "next/link";
 import PageHead from "@/features/page-head";
-import type { SectionData } from "@/data/data";
+import type { SectionData } from "@/data/sections";
 import { Routes } from "@/data/routes";
 
 function initials(name: string) {

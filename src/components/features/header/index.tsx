@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Box from "@/common/box";
 import Button from "@/common/button";
 import Container from "@/common/container";
-import { hasMega, NAV } from "@/data/data";
+import { hasMega, NAV } from "@/data/navigation";
 import { Routes } from "@/data/routes";
 import { Site } from "@/data/site";
 import { DESKTOP_QUERY, useMediaQuery } from "@/hooks/use-media-query";

@@ -1,7 +1,7 @@
 import PageHead from "@/features/page-head";
 import Tabs from "@/features/tabs";
 import Accordion from "@/features/accordion";
-import { FAQ_DATA } from "@/data/data";
+import { FAQ_DATA } from "@/data/faqs";
 
 export const metadata = { title: "FAQs" };
 

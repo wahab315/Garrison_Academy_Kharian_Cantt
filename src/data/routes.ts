@@ -1,4 +1,4 @@
-import type { SectionKey } from "@/data/data";
+import type { SectionKey } from "@/data/sections";
 
 /**
  * The single source of truth for every URL on the site.

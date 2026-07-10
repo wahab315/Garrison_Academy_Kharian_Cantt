@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Box from "@/common/box";
 import Button from "@/common/button";
-import { hasMega, type NavItem } from "@/data/data";
+import { hasMega, type NavItem } from "@/data/navigation";
 import { Routes } from "@/data/routes";
 import { Site } from "@/data/site";
 import Brand from "@/components/features/header/brand";
