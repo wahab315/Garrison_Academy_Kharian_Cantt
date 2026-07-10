@@ -1,0 +1,10 @@
+@use "../../../globals" as g;
+
+// Were `style={{ marginBottom: 16 }}` / `style={{ marginBottom: 34 }}`.
+.activities__heading {
+  margin-bottom: 16px;
+}
+
+.activities__clubs {
+  margin-bottom: 34px;
+}
