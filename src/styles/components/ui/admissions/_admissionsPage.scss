@@ -1,0 +1,39 @@
+@use "../../../globals" as g;
+
+// Were `style={{ alignItems: "flex-start" }}` and a handful of margins.
+.admissions__split {
+  align-items: flex-start;
+}
+
+.admissions__heading {
+  margin-bottom: 10px;
+}
+
+.admissions__heading--tight {
+  margin-bottom: 12px;
+}
+
+.admissions__steps {
+  margin-bottom: 30px;
+}
+
+.admissions__criteria {
+  margin-bottom: 26px;
+}
+
+.admissions__form-heading {
+  margin-bottom: 6px;
+}
+
+.admissions__form-intro {
+  font-size: 0.86rem;
+  color: g.$ink-soft;
+  margin-bottom: 18px;
+}
+
+// Was an inline-styled <Link> inside the form footnote.
+.form__link {
+  color: g.$green-700;
+  font-weight: 600;
+  text-decoration: underline;
+}

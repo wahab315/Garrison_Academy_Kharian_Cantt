@@ -89,3 +89,16 @@
   font-size: 0.88rem;
   color: g.$ink-soft;
 }
+
+// Visually hidden, but not `display:none` -- bots skip hidden inputs.
+.form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form__error {
+  margin-bottom: 12px;
+}

@@ -1,0 +1,7 @@
+@use "../../../globals" as g;
+
+// Was `style={{ maxWidth: 680, margin: "0 auto" }}`.
+.feedback__wrap {
+  max-width: 680px;
+  margin: 0 auto;
+}
