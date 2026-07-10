@@ -1,0 +1,29 @@
+@use "../../../globals" as g;
+
+// Were `style={{ marginBottom: 40, alignItems: "flex-start" }}`.
+.section-detail__split {
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+// Was `style={{ maxWidth: 300 }}`.
+.section-detail__head-card {
+  max-width: 300px;
+}
+
+// Was `style={{ marginBottom: 12 }}`.
+.section-detail__faculty-heading {
+  margin-bottom: 12px;
+}
+
+// Was `style={{ fontSize: ".82rem", color: "var(--ink-soft)", marginTop: 12 }}`.
+.section-detail__faculty-note {
+  font-size: 0.82rem;
+  color: g.$ink-soft;
+  margin-top: 12px;
+}
+
+// Was `style={{ marginBottom: 30 }}`.
+.section-detail__note {
+  margin-bottom: 30px;
+}

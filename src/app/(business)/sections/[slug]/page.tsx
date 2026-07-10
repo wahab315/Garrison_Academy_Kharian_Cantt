@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import SectionDetail from "@/components/SectionDetail";
-import { SECTIONS, type SectionKey } from "@/data/sections";
+import SectionsDetail from "@/ui/sections/sections.detail";
+import { SECTIONS, SECTION_KEYS, type SectionKey } from "@/data/sections";
 
 export function generateStaticParams() {
-  return (Object.keys(SECTIONS) as SectionKey[]).map((slug) => ({ slug }));
+  return SECTION_KEYS.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
@@ -17,5 +17,5 @@ export default async function SectionPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const data = SECTIONS[slug as SectionKey];
   if (!data) notFound();
-  return <SectionDetail data={data} />;
+  return <SectionsDetail data={data} />;
 }
