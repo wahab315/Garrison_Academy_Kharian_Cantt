@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { ToastProvider } from "@/components/Toast";
+import Header from "@/features/header";
+import Footer from "@/features/footer";
+import { ToastProvider } from "@/features/toast";
 import { Routes } from "@/data/routes";
 
 export const metadata = { title: "Page not found" };

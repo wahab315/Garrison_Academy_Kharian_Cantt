@@ -1,6 +1,6 @@
-import PageHead from "@/components/PageHead";
-import Tabs from "@/components/Tabs";
-import { ToastButton } from "@/components/Toast";
+import PageHead from "@/features/page-head";
+import Tabs from "@/features/tabs";
+import { ToastButton } from "@/features/toast";
 
 export const metadata = { title: "Downloads" };
 
@@ -20,7 +20,7 @@ const PAPERS: [string, string, string][] = [
   ["English", "XI", "2024"],
 ];
 
-const DlBtn = () => <ToastButton as="a" msg="Downloading PDF…" className="dl-btn">↓ PDF</ToastButton>;
+const DlBtn = () => <ToastButton msg="Downloading PDF…" className="dl-btn">↓ PDF</ToastButton>;
 
 export default function DownloadsPage() {
   return (
@@ -59,7 +59,7 @@ export default function DownloadsPage() {
             {
               label: "Admission Form",
               panel: (
-                <div className="card" style={{ maxWidth: 520 }}><div className="ic">📄</div><h3>Admission Registration Form</h3><p>Download, print and submit the manual application form at the admissions office along with required documents.</p><ToastButton as="a" msg="Downloading admission form…" className="btn-primary mt">↓ Download Form (PDF)</ToastButton></div>
+                <div className="card" style={{ maxWidth: 520 }}><div className="ic">📄</div><h3>Admission Registration Form</h3><p>Download, print and submit the manual application form at the admissions office along with required documents.</p><ToastButton msg="Downloading admission form…" className="btn-primary mt">↓ Download Form (PDF)</ToastButton></div>
               ),
             },
           ]}

@@ -1,5 +1,5 @@
-import PageHead from "@/components/PageHead";
-import { ToastButton } from "@/components/Toast";
+import PageHead from "@/features/page-head";
+import { ToastButton } from "@/features/toast";
 
 export const metadata = { title: "Feedback & Complaints" };
 

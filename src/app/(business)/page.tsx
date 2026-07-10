@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
-import NotificationTicker from "@/components/NotificationTicker";
+import NotificationTicker from "@/features/notification-ticker";
 import SectionGrid from "@/components/SectionGrid";
 import { Routes } from "@/data/routes";
 

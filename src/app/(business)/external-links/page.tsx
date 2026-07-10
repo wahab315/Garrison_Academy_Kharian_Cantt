@@ -1,5 +1,5 @@
-import PageHead from "@/components/PageHead";
-import { ToastButton } from "@/components/Toast";
+import PageHead from "@/features/page-head";
+import { ToastButton } from "@/features/toast";
 
 export const metadata = { title: "Important & External Links" };
 
@@ -36,8 +36,8 @@ export default function LinksPage() {
           ))}
           <div className="card link"><div className="ic">📱</div><h3>Garrison Academy Social Media</h3><p>Follow official updates, photos and announcements.</p>
             <span className="more" style={{ display: "flex", gap: 14 }}>
-              <ToastButton as="span" msg="Opening Facebook…" className="">Facebook ↗</ToastButton>
-              <ToastButton as="span" msg="Opening Instagram…" className="">Instagram ↗</ToastButton>
+              <ToastButton msg="Opening Facebook…" className="">Facebook ↗</ToastButton>
+              <ToastButton msg="Opening Instagram…" className="">Instagram ↗</ToastButton>
             </span>
           </div>
         </div>

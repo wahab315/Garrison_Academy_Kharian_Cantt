@@ -1,11 +1,13 @@
-import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
+import type { ComponentPropsWithRef, ElementType, ReactNode } from "react";
 
 export type BoxProps<T extends ElementType = "div"> = {
   /** The element to render. Defaults to a div. */
   as?: T;
   className?: string;
   children?: ReactNode;
-} & Omit<ComponentPropsWithoutRef<T>, "as" | "className" | "children">;
+  // WithRef, not WithoutRef: React 19 passes `ref` as an ordinary prop, and
+  // callers need it (chatbot autoscroll, dropdown click-outside).
+} & Omit<ComponentPropsWithRef<T>, "as" | "className" | "children">;
 
 /**
  * The lowest-level layout primitive: renders any element, forwards every prop.

@@ -1,4 +1,4 @@
-@use "../globals" as g;
+@use "../../globals" as g;
 
 .pagehead {
   background: linear-gradient(150deg, g.$green-800, g.$green-900);
@@ -17,7 +17,8 @@
     background: radial-gradient(circle, g.$glow-gold, transparent 65%);
   }
 
-  .eyebrow {
+  .eyebrow,
+  .text__eyebrow {
     color: g.$gold-300;
 
     &::before {

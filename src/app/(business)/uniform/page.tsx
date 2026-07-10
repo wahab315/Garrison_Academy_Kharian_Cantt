@@ -1,5 +1,5 @@
-import PageHead from "@/components/PageHead";
-import Tabs from "@/components/Tabs";
+import PageHead from "@/features/page-head";
+import Tabs from "@/features/tabs";
 
 export const metadata = { title: "School Uniform" };
 

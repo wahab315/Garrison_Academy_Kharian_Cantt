@@ -1,4 +1,4 @@
-import PageHead from "@/components/PageHead";
+import PageHead from "@/features/page-head";
 
 export const metadata = { title: "Alumni" };
 

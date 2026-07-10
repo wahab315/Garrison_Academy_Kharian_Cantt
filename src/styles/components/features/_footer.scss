@@ -1,4 +1,4 @@
-@use "../globals" as g;
+@use "../../globals" as g;
 
 footer {
   background: g.$green-900;
@@ -11,15 +11,6 @@ footer {
     line-height: 1.7;
     color: g.$footer-body;
     max-width: 34ch;
-  }
-
-  h5 {
-    font-family: g.$inscription;
-    font-size: 0.78rem;
-    letter-spacing: 0.16em;
-    color: g.$gold-300;
-    text-transform: uppercase;
-    margin-bottom: 16px;
   }
 
   ul {
@@ -40,6 +31,16 @@ footer {
       }
     }
   }
+}
+
+.fcol__title {
+  display: block;
+  font-family: g.$inscription;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  color: g.$gold-300;
+  text-transform: uppercase;
+  margin-bottom: 16px;
 }
 
 .fgrid {
@@ -67,42 +68,45 @@ footer {
     width: 52px;
     height: 52px;
   }
+}
 
-  .nm {
-    font-family: g.$inscription;
-    font-weight: 700;
-    color: g.$white;
-    font-size: 0.95rem;
-    letter-spacing: 0.03em;
-  }
+.fbrand__name {
+  display: block;
+  font-family: g.$inscription;
+  font-weight: 700;
+  color: g.$white;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
 
-  .sub {
-    font-size: 0.7rem;
-    color: g.$gold-400;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
+.fbrand__sub {
+  display: block;
+  font-size: 0.7rem;
+  color: g.$gold-400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .fsoc {
   display: flex;
   gap: 10px;
   margin-top: 8px;
+}
 
-  a {
-    width: 36px;
-    height: 36px;
-    border-radius: 9px;
-    background: g.$white-a06;
-    display: grid;
-    place-items: center;
-    color: g.$footer-social;
-    transition: 0.18s;
+// The social buttons were anchors with no href; they are real buttons now.
+.fsoc__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: g.$white-a06;
+  display: grid;
+  place-items: center;
+  color: g.$footer-social;
+  transition: 0.18s;
 
-    &:hover {
-      background: g.$gold-500;
-      color: g.$white;
-    }
+  &:hover {
+    background: g.$gold-500;
+    color: g.$white;
   }
 }
 
@@ -115,9 +119,4 @@ footer {
   gap: 10px;
   font-size: 0.8rem;
   color: g.$footer-bottom;
-
-  .urdu {
-    color: g.$gold-400;
-    font-size: 1rem;
-  }
 }

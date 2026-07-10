@@ -1,4 +1,4 @@
-@use "../globals" as g;
+@use "../../globals" as g;
 
 .tabs {
   display: flex;
@@ -7,6 +7,11 @@
   border-bottom: 1px solid g.$line;
   margin-bottom: 34px;
   padding-bottom: 0;
+
+  // Was an inline style on the Tabs component.
+  &--centered {
+    justify-content: center;
+  }
 }
 
 .tab {

@@ -1,38 +1,30 @@
 // Order mirrors the source order of the original globals.css. Several rules
-// tie on specificity (e.g. `p.lead` vs `.prose p`), so the cascade depends on
-// it. Do not reorder without re-running the screenshot diff.
+// tie on specificity (e.g. `p.lead` vs `.prose p`), so the cascade depends
+// on it. Do not reorder without re-running the screenshot diff.
 //
-// These are flat holding files. Phases 5-8 re-home each one into
-// `common/`, `features/` or `ui/{page}/` as its component is rebuilt.
+// `common/` and `features/` are done. The flat partials below are holding
+// files for blocks that phase 8 re-homes into `ui/{page}/`.
 
-// Primitives first: page and feature rules layer on top of them.
 @forward "common";
+@forward "features";
 
 @forward "container";
 @forward "view";
-@forward "header";
 @forward "hero";
 @forward "button";
-@forward "notificationTicker";
-@forward "pageHead";
 @forward "section";
 @forward "grid";
 @forward "card";
 @forward "person";
-@forward "tabs";
 @forward "prose";
 @forward "tile";
 @forward "statBand";
 @forward "table";
-@forward "accordion";
 @forward "form";
-@forward "toast";
 @forward "steps";
 @forward "organogram";
 @forward "uniform";
-@forward "chatbot";
 @forward "contactInfo";
 @forward "alumni";
 @forward "ctaBand";
-@forward "footer";
 @forward "noteBox";

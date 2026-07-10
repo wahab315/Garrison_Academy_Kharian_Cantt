@@ -1,6 +1,6 @@
-import PageHead from "@/components/PageHead";
-import Tabs from "@/components/Tabs";
-import Accordion from "@/components/Accordion";
+import PageHead from "@/features/page-head";
+import Tabs from "@/features/tabs";
+import Accordion from "@/features/accordion";
 import { FAQ_DATA } from "@/data/data";
 
 export const metadata = { title: "FAQs" };

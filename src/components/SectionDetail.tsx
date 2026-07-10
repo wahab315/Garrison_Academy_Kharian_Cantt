@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PageHead from "@/components/PageHead";
+import PageHead from "@/features/page-head";
 import type { SectionData } from "@/data/data";
 import { Routes } from "@/data/routes";
 

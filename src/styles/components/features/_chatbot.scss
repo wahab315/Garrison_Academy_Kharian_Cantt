@@ -1,4 +1,4 @@
-@use "../globals" as g;
+@use "../../globals" as g;
 
 .chat {
   max-width: 760px;
@@ -27,7 +27,8 @@
       font-size: 1.2rem;
     }
 
-    .nm {
+    .chd__name {
+      display: block;
       font-weight: 600;
     }
 
@@ -98,19 +99,13 @@
   }
 }
 
-.chip {
-  background: g.$green-tint;
-  color: g.$green-700;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: g.$radius-pill;
-  transition: 0.16s;
+// The question chips are now <Button classStyle="chip">, styled by
+// components/common/_button.scss as `.btn__chip`.
 
-  &:hover {
-    background: g.$green-700;
-    color: g.$white;
-  }
+.chatbot__note {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .lvtab {

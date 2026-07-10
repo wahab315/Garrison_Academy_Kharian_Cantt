@@ -1,0 +1,79 @@
+@use "../../globals" as g;
+
+.dropdown {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.dropdown__label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.dropdown__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1.5px solid g.$line-strong;
+  border-radius: g.$radius-sm;
+  background: g.$cream;
+  font-size: 0.92rem;
+  color: g.$ink;
+  text-align: left;
+  transition: 0.18s;
+
+  &:focus-visible {
+    outline: none;
+    border-color: g.$green-600;
+    box-shadow: g.$focus-ring;
+    background: g.$white;
+  }
+}
+
+.dropdown__caret {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-right: 1.6px solid currentColor;
+  border-bottom: 1.6px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -4px;
+  opacity: 0.6;
+}
+
+.dropdown__list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  list-style: none;
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius-sm;
+  box-shadow: g.$shadow-md;
+  padding: 6px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.dropdown__option {
+  padding: 10px 12px;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  color: g.$ink-soft;
+  cursor: pointer;
+
+  &.is-active {
+    background: g.$green-tint;
+    color: g.$green-700;
+  }
+
+  &[aria-selected="true"] {
+    font-weight: 600;
+    color: g.$green-800;
+  }
+}
