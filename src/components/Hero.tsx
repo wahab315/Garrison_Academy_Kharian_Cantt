@@ -1,8 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Assets } from "@/data/assets";
+import { Routes } from "@/data/routes";
 
-const SLIDES = ["/hero1.jpg", "/hero2.jpg", "/hero3.jpg"]; // classroom, library, building
+const SLIDES = Assets.home.hero; // classroom, library, building
 
 export default function Hero() {
   const [i, setI] = useState(0);
@@ -27,8 +29,8 @@ export default function Hero() {
           <div className="motto-tr">&ldquo;My Lord, increase me in knowledge&rdquo;</div>
           <p className="hsub">A tradition of academic excellence, discipline and character-building in the heart of Kharian Cantt — nurturing future leaders from Pre-School through college.</p>
           <div className="hero-cta">
-            <Link className="btn-primary" href="/admissions">Apply for Admission</Link>
-            <Link className="btn-ghost" href="/about">Explore the campus →</Link>
+            <Link className="btn-primary" href={Routes.admissions}>Apply for Admission</Link>
+            <Link className="btn-ghost" href={Routes.about}>Explore the campus →</Link>
           </div>
         </div>
       </div>

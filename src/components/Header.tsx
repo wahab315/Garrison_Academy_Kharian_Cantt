@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NAV, type NavItem } from "@/data/data";
+import { Assets } from "@/data/assets";
 import { Routes } from "@/data/routes";
 import { IoMail } from "react-icons/io5";
 
@@ -76,7 +77,7 @@ export default function Header() {
           <Link className="brand" href="/">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo.png"
+              src={Assets.logo}
               alt="Garrison Academy Kharian Cantt crest"
               width={56}
               height={56}
@@ -169,7 +170,7 @@ export default function Header() {
             <Link className="brand" href="/" onClick={() => setDrawer(false)}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logo.png"
+                src={Assets.logo}
                 alt=""
                 width={42}
                 height={42}

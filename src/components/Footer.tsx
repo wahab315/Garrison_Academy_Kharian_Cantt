@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ToastButton } from "@/components/Toast";
+import { Assets } from "@/data/assets";
 
 const EXPLORE = [
   ["About Us", "/about"],
@@ -31,7 +32,7 @@ export default function Footer() {
           <div className="ft">
             <div className="fbrand">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt="" width={52} height={52} />
+              <img src={Assets.logo} alt="" width={52} height={52} />
               <div>
                 <div className="nm">Garrison Academy</div>
                 <div className="sub">Kharian Cantt</div>
