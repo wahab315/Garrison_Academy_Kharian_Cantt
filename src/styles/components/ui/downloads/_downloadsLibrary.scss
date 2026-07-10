@@ -1,0 +1,6 @@
+@use "../../../globals" as g;
+
+// Was `style={{ maxWidth: 520 }}`.
+.downloads__form-card {
+  max-width: 520px;
+}
