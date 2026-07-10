@@ -1,0 +1,15 @@
+@use "../../../globals" as g;
+
+// Were `style={{ marginBottom: 18 }}` / `style={{ marginBottom: 26 }}`.
+.hr__heading {
+  margin-bottom: 18px;
+}
+
+.hr__table {
+  margin-bottom: 26px;
+}
+
+// Was `style={{ marginTop: 14 }}` on the adverts link.
+.hr__adverts-link {
+  margin-top: 14px;
+}
