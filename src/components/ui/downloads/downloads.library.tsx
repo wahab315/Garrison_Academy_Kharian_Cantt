@@ -41,7 +41,7 @@ export default function DownloadsLibrary({
                 </Box>
                 <Typography as="h3">{form.title}</Typography>
                 <Typography as="p">{form.desc}</Typography>
-                <ToastButton msg={form.cta.toast} className="btn-primary mt">
+                <ToastButton msg={form.cta.toast} classStyle="primary" className="mt downloads__cta">
                   {form.cta.label}
                 </ToastButton>
               </Box>

@@ -13,7 +13,7 @@ function Cell({ cell }: { cell: BusinessCell }) {
       );
     case "action":
       return (
-        <ToastButton msg={cell.toast} className="dl-btn">
+        <ToastButton msg={cell.toast} classStyle="download">
           {cell.value}
         </ToastButton>
       );

@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Box from "@/common/box";
+import Button from "@/common/button";
 import Typography from "@/common/typography";
 
 export type DropdownOption = { value: string; label: string };
@@ -85,8 +86,7 @@ export default function Dropdown({
         {label}
       </Typography>
 
-      <button
-        type="button"
+      <Button
         className={`dropdown__trigger ${error ? "input--invalid" : ""}`}
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -99,7 +99,7 @@ export default function Dropdown({
       >
         {selected?.label ?? placeholder}
         <Typography as="span" className="dropdown__caret" aria-hidden="true" />
-      </button>
+      </Button>
 
       {open ? (
         <Box

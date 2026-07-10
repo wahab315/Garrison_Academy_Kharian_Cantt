@@ -31,7 +31,7 @@ export default function HrOpenings({
           </Box>
           <Typography as="h3">{panels.apply.title}</Typography>
           <Typography as="p">{panels.apply.desc}</Typography>
-          <ToastButton msg={panels.apply.cta.toast} className="btn-primary mt">
+          <ToastButton msg={panels.apply.cta.toast} classStyle="primary" className="mt hr__cta">
             {panels.apply.cta.label}
           </ToastButton>
         </Box>

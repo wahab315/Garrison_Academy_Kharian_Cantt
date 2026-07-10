@@ -73,8 +73,7 @@ export default function HomeHero({
 
       <Box className="hero-dots">
         {slides.map((src, i) => (
-          <button
-            type="button"
+          <Button
             key={src}
             className={`dot ${i === index ? "active" : ""}`}
             aria-label={`Show slide ${i + 1}`}

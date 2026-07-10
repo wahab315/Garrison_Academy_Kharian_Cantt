@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Box from "@/common/box";
+import Button from "@/common/button";
 import Typography from "@/common/typography";
 import type { MegaLink } from "@/data/navigation";
 
@@ -37,15 +38,14 @@ export default function MegaMenu({
       onMouseEnter={hoverEnabled ? onOpen : undefined}
       onMouseLeave={hoverEnabled ? onClose : undefined}
     >
-      <button
-        type="button"
+      <Button
         aria-expanded={open}
         aria-haspopup="true"
         aria-controls={id}
         onClick={onToggle}
       >
         {label} <i className="caret" aria-hidden="true" />
-      </button>
+      </Button>
 
       <Box
         id={id}

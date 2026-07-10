@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import Box from "@/common/box";
+import Button from "@/common/button";
 import Typography from "@/common/typography";
 
 export type AccordionItem = { q: string; a: string };
@@ -19,8 +20,7 @@ export default function Accordion({ items }: { items: readonly AccordionItem[] }
 
         return (
           <Box key={item.q} className={`item ${expanded ? "open" : ""}`}>
-            <button
-              type="button"
+            <Button
               id={buttonId}
               className="q"
               aria-expanded={expanded}
@@ -31,7 +31,7 @@ export default function Accordion({ items }: { items: readonly AccordionItem[] }
               <Typography as="span" className="pl" aria-hidden="true">
                 +
               </Typography>
-            </button>
+            </Button>
 
             <Box
               id={panelId}

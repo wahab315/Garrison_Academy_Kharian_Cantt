@@ -14,7 +14,8 @@ export type ButtonStyle =
 type Shared = {
   classStyle?: ButtonStyle;
   className?: string;
-  children: ReactNode;
+  /** Optional: some buttons are pure affordances, e.g. the hero slide dots. */
+  children?: ReactNode;
 };
 
 type LinkButtonProps = Shared & {

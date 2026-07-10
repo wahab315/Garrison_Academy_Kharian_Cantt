@@ -48,13 +48,12 @@ export default function MobileDrawer({ nav, open, onClose }: MobileDrawerProps) 
               className={`dgroup ${openGroups[i] ? "open" : ""}`}
               key={item.label}
             >
-              <button
-                type="button"
+              <Button
                 aria-expanded={Boolean(openGroups[i])}
                 onClick={() => setOpenGroups((g) => ({ ...g, [i]: !g[i] }))}
               >
                 {item.label} <span aria-hidden="true">▾</span>
-              </button>
+              </Button>
               <Box className="dsub">
                 {item.mega.map((m) => (
                   <Link key={m.href + m.label} href={m.href} onClick={onClose}>

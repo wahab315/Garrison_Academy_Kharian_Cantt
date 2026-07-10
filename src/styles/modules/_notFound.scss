@@ -17,12 +17,12 @@
     background: radial-gradient(circle, g.$glow-gold, transparent 65%);
   }
 
-  .wrap {
+  .container {
     position: relative;
     z-index: 1;
   }
 
-  .eyebrow {
+  .text__eyebrow {
     color: g.$gold-300;
 
     &::before {
@@ -35,7 +35,7 @@
     margin: 14px 0 10px;
   }
 
-  // Outranks `p.lead`, which would otherwise paint dark ink on the dark band.
+  // Outranks `.text__large`, which would paint dark ink on the dark band.
   p.nf-lead {
     color: g.$on-dark;
   }

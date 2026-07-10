@@ -2,6 +2,7 @@
 
 import { useId, useState, type ReactNode } from "react";
 import Box from "@/common/box";
+import Button from "@/common/button";
 
 export type TabItem = { label: string; panel: ReactNode };
 
@@ -24,8 +25,7 @@ export default function Tabs({ items, centered = false }: TabsProps) {
         role="tablist"
       >
         {items.map((tab, i) => (
-          <button
-            type="button"
+          <Button
             key={tab.label}
             id={tabId(i)}
             role="tab"
@@ -36,7 +36,7 @@ export default function Tabs({ items, centered = false }: TabsProps) {
             onClick={() => setActive(i)}
           >
             {tab.label}
-          </button>
+          </Button>
         ))}
       </Box>
 

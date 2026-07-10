@@ -4,3 +4,8 @@
 .downloads__form-card {
   max-width: 520px;
 }
+
+// `.btn__primary` sets no display; keep the phase-6 inline-block block box.
+.downloads__cta {
+  display: inline-block;
+}

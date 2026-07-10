@@ -11,7 +11,9 @@ import { homePrincipalMessageContent } from "@/data/content/home/content.home-pr
 import { homeQuickAccessContent } from "@/data/content/home/content.home-quick-access";
 
 export const metadata = {
-  title: "Garrison Academy Kharian Cantt",
+  // `absolute` opts out of the root layout's "%s · Garrison Academy Kharian
+  // Cantt" template, which would otherwise repeat the school's name twice.
+  title: { absolute: "Garrison Academy Kharian Cantt" },
   description:
     "Academic excellence, discipline and character since 1985. Explore admissions for Session 2026, academic sections, scholarships and downloads.",
 };

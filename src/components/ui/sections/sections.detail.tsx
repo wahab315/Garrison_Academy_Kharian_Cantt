@@ -37,7 +37,7 @@ export default function SectionsDetail({ data }: { data: SectionData }) {
       />
 
       <BusinessSection>
-        <Button href={Routes.quickLinks} className="back">
+        <Button href={Routes.quickLinks} classStyle="back">
           {sectionDetailCopy.backLabel}
         </Button>
 

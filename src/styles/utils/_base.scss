@@ -216,45 +216,6 @@ video {
   display: none;
 }
 
-/* ============================================================
-   Custom properties.
-
-   These exist only for the inline `style={{ ... }}` attributes still left in
-   the TSX tree, which are removed page by page in phase 8. SCSS partials must
-   use the tokens in `globals/` instead. Delete this block in phase 10, once
-   `grep -r "var(--" src/` comes back empty.
-   ============================================================ */
-:root {
-  --green-900: #{g.$green-900};
-  --green-800: #{g.$green-800};
-  --green-700: #{g.$green-700};
-  --green-600: #{g.$green-600};
-  --green-500: #{g.$green-500};
-  --green-tint: #{g.$green-tint};
-  --gold-600: #{g.$gold-600};
-  --gold-500: #{g.$gold-500};
-  --gold-400: #{g.$gold-400};
-  --gold-300: #{g.$gold-300};
-  --flame: #{g.$flame};
-  --flame-2: #{g.$flame-2};
-  --cream: #{g.$cream};
-  --paper: #{g.$paper};
-  --paper-2: #{g.$paper-2};
-  --ink: #{g.$ink};
-  --ink-soft: #{g.$ink-soft};
-  --line: #{g.$line};
-  --line-strong: #{g.$line-strong};
-  --shadow-sm: #{g.$shadow-sm};
-  --shadow-md: #{g.$shadow-md};
-  --shadow-lg: #{g.$shadow-lg};
-  --r: #{g.$radius};
-  --r-sm: #{g.$radius-sm};
-  --maxw: #{g.$max-width};
-  --display: #{g.$display};
-  --insc: #{g.$inscription};
-  --body: #{g.$body};
-}
-
 /* ---------- project reset ---------- */
 * {
   box-sizing: border-box;

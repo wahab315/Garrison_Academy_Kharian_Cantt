@@ -59,8 +59,7 @@ export default function Chatbot() {
 
       <Box className="lvtabs" role="tablist" aria-label="Chat topics">
         {(Object.keys(CHAT_QA) as ChatLevel[]).map((key) => (
-          <button
-            type="button"
+          <Button
             key={key}
             role="tab"
             aria-selected={level === key}
@@ -68,7 +67,7 @@ export default function Chatbot() {
             onClick={() => setLevel(key)}
           >
             {CHAT_QA[key].label}
-          </button>
+          </Button>
         ))}
       </Box>
 

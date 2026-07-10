@@ -1,31 +1,10 @@
 @use "../globals" as g;
 
-// Legacy class names, still used by pages that phase 8 has not reached yet.
-// They share their declarations with the BEM classes in
-// components/common/_typography.scss via the mixins in globals/_typography.
-
-.eyebrow {
-  @include g.eyebrow;
-}
-
+// Element-level defaults. The class-based heading styles live in
+// components/common/_typography.scss (`.heading__*`), which shares these
+// declarations through the `heading-base` mixin.
 h1,
 h2,
 h3 {
   @include g.heading-base;
-}
-
-.h-xl {
-  font-size: g.$size-h-xl;
-}
-
-.h-lg {
-  font-size: g.$size-h-lg;
-}
-
-.h-md {
-  font-size: g.$size-h-md;
-}
-
-p.lead {
-  @include g.lead;
 }
