@@ -1,0 +1,147 @@
+@use "../../../globals" as g;
+
+.hero {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  color: g.$white;
+  overflow: hidden;
+
+  .slides {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: g.$green-900;
+    opacity: 0;
+    transition: opacity 1.3s ease;
+
+    &.active {
+      opacity: 1;
+      animation: kbz 7s ease forwards;
+    }
+  }
+
+  .tex {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Ccircle cx='2' cy='2' r='1.1' fill='%23ffffff22'/%3E%3C/svg%3E");
+  }
+
+  .ov {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      90deg,
+      rgba(g.$green-900, 0.95) 0%,
+      rgba(g.$green-900, 0.82) 34%,
+      rgba(g.$green-900, 0.4) 72%,
+      rgba(g.$green-900, 0.14) 100%
+    );
+  }
+
+  .container {
+    z-index: 3;
+    display: block;
+    padding: 104px 24px 112px;
+    width: 100%;
+  }
+
+  .hcopy {
+    max-width: 640px;
+  }
+
+  .text__eyebrow {
+    color: g.$gold-300;
+
+    &::before {
+      background: g.$gold-400;
+    }
+  }
+
+  h1 {
+    color: g.$white;
+    margin: 18px 0 14px;
+
+    .g {
+      color: g.$gold-300;
+    }
+  }
+
+  .motto {
+    font-family: g.$urdu;
+    font-size: 1.35rem;
+    color: g.$gold-300;
+    margin-bottom: 4px;
+    margin-left: 4rem;
+    padding: 2rem 0rem;
+  }
+
+  .motto-tr {
+    font-style: italic;
+    font-family: g.$display;
+    color: g.$motto-translation;
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+
+  p.hsub {
+    color: g.$white-a90;
+    font-size: 1.08rem;
+    max-width: 48ch;
+    margin-bottom: 30px;
+  }
+
+  @include g.respond(tab-mid) {
+    min-height: 520px;
+
+    .container {
+      padding: 74px 24px 84px;
+    }
+  }
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-dots {
+  position: absolute;
+  z-index: 4;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: g.$white-a42;
+    transition: 0.25s;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+
+    &.active {
+      width: 26px;
+      border-radius: 5px;
+      background: g.$gold-400;
+    }
+  }
+}

@@ -1,0 +1,378 @@
+@use "../../globals" as g;
+
+/* ---------- top utility strip ---------- */
+.util {
+  background: g.$green-900;
+  color: g.$util-text;
+  font-size: 0.78rem;
+
+  .util__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 38px;
+    gap: 18px;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: g.$util-link;
+    transition: color 0.2s;
+
+    &:hover {
+      color: g.$gold-300;
+    }
+  }
+
+  // Two class selectors, so this outranks the `.util a` rule above.
+  .util__contact {
+    color: g.$gold-500;
+  }
+
+  .util__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: g.$gold-500;
+  }
+
+  .util__icon {
+    font-size: 1rem;
+  }
+}
+
+.util__left {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.util__right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+@include g.respond(tab-port) {
+  .util__left .util__hide {
+    display: none;
+  }
+}
+
+/* ---------- header / nav ---------- */
+header.main {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: g.$header-bg;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid g.$line;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.brand__crest {
+  width: 56px;
+  height: 56px;
+  filter: g.$logo-shadow;
+}
+
+.brand__name {
+  // Typography renders a span; these stack like the divs they replaced.
+  display: block;
+  font-family: g.$inscription;
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: g.$green-800;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+
+  &--compact {
+    font-size: 0.9rem;
+  }
+}
+
+.brand__sub {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: g.$gold-600;
+  font-weight: 600;
+}
+
+nav.links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navitem {
+  position: relative;
+
+  > button,
+  > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 13px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: g.$green-900;
+    border-radius: 8px;
+    transition:
+      background 0.18s,
+      color 0.18s;
+  }
+
+  > button:hover,
+  > a:hover,
+  > a[aria-current="page"],
+  &.open > button {
+    background: g.$green-tint;
+    color: g.$green-700;
+  }
+
+  .caret {
+    width: 8px;
+    height: 8px;
+    border-right: 1.6px solid currentColor;
+    border-bottom: 1.6px solid currentColor;
+    transform: rotate(45deg);
+    margin-top: -3px;
+    opacity: 0.6;
+    transition: transform 0.2s;
+  }
+
+  &.open .caret {
+    transform: rotate(-135deg);
+    margin-top: 2px;
+  }
+
+  &.open .mega {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.mega {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  box-shadow: g.$shadow-lg;
+  padding: 14px;
+  min-width: 300px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: 0.2s;
+  z-index: 70;
+
+  &.r {
+    left: auto;
+    right: 0;
+  }
+
+  a {
+    display: flex;
+    gap: 11px;
+    padding: 10px 12px;
+    border-radius: 9px;
+    transition: background 0.15s;
+
+    &:hover {
+      background: g.$green-tint;
+    }
+  }
+
+  &.grid2 {
+    min-width: 520px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+}
+
+.mega__icon {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 7px;
+  background: linear-gradient(135deg, g.$green-700, g.$green-500);
+  color: g.$white;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  font-family: g.$inscription;
+}
+
+// Pre-existing bug: the old `.mt` / `.md` spans set no display and were not
+// flex items (their wrapper was), so the label and description ran together
+// on one line -- "Pre-SchoolFoundation years".
+.mega__title {
+  display: block;
+  font-weight: 600;
+  font-size: 0.86rem;
+  color: g.$green-900;
+}
+
+.mega__desc {
+  display: block;
+  font-size: 0.74rem;
+  color: g.$ink-soft;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+
+  span {
+    width: 24px;
+    height: 2px;
+    background: g.$green-800;
+    border-radius: 2px;
+    transition: 0.25s;
+  }
+}
+
+@include g.respond(desktop) {
+  nav.links,
+  .btn__apply.deskonly {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+/* ---------- mobile drawer ---------- */
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  visibility: hidden;
+  pointer-events: none;
+
+  .scrim {
+    position: absolute;
+    inset: 0;
+    background: g.$scrim;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  .panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(86vw, 360px);
+    height: 100%;
+    background: g.$cream;
+    box-shadow: g.$shadow-lg;
+    transform: translateX(100%);
+    transition: 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    padding: 22px;
+  }
+
+  &.open {
+    visibility: visible;
+    pointer-events: auto;
+
+    .scrim {
+      opacity: 1;
+    }
+
+    .panel {
+      transform: translateX(0);
+    }
+  }
+
+  .dgroup {
+    border-bottom: 1px solid g.$line;
+    padding: 6px 0;
+
+    > button {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 4px;
+      font-weight: 600;
+      font-size: 0.96rem;
+      color: g.$green-900;
+    }
+
+    &.open .dsub {
+      display: block;
+    }
+  }
+
+  .dgroup__link {
+    display: block;
+    padding: 13px 4px;
+    font-weight: 600;
+    color: g.$green-900;
+  }
+
+  .dsub {
+    display: none;
+    padding: 0 0 8px 10px;
+
+    a {
+      display: block;
+      padding: 9px 6px;
+      font-size: 0.86rem;
+      color: g.$ink-soft;
+
+      &:hover {
+        color: g.$green-700;
+      }
+    }
+  }
+
+  .brand__crest {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+.drawer__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.drawer__close {
+  font-size: 1.6rem;
+  color: g.$green-800;
+}
+
+.drawer__cta {
+  display: block;
+  text-align: center;
+  margin-bottom: 16px;
+}

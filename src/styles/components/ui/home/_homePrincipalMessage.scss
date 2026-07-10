@@ -1,0 +1,29 @@
+@use "../../../globals" as g;
+
+.home-principal__byline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.home-principal__name {
+  display: block;
+  font-family: g.$display;
+  font-size: 1.1rem;
+  color: g.$green-900;
+}
+
+.home-principal__role {
+  display: block;
+  font-size: 0.8rem;
+  color: g.$gold-600;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+// `.btn__primary` sets no display, so the anchor is inline; the original
+// carried style={{ display: "inline-block" }} here.
+.home-principal__cta {
+  display: inline-block;
+}

@@ -1,0 +1,12 @@
+@use "../../../globals" as g;
+
+// `.n` and `.l` were divs; Typography renders spans.
+.statband .n,
+.statband .l {
+  display: block;
+}
+
+// Was `style={{ gridTemplateColumns: "1fr 1fr" }}` on the home stat band.
+.statband.statband--compact {
+  grid-template-columns: 1fr 1fr;
+}

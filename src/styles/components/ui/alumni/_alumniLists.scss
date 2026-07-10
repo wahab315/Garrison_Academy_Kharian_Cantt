@@ -1,0 +1,17 @@
+@use "../../../globals" as g;
+
+// Were `style={{ marginBottom: 18 }}` / `style={{ marginBottom: 40 }}`.
+.alumni__heading {
+  margin-bottom: 18px;
+}
+
+.alumni__roster {
+  margin-bottom: 40px;
+}
+
+// Was an inline-styled <span> inside the heading.
+.alumni__heading-note {
+  font-size: 0.7rem;
+  color: g.$ink-soft;
+  font-weight: 400;
+}

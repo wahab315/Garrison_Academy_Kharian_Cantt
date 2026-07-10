@@ -1,0 +1,64 @@
+@use "../globals" as g;
+
+.tbl-wrap {
+  overflow-x: auto;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  box-shadow: g.$shadow-sm;
+}
+
+table.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  background: g.$paper;
+  font-size: 0.9rem;
+  min-width: 520px;
+
+  th {
+    background: g.$green-800;
+    color: g.$ticker-text;
+    text-align: left;
+    padding: 13px 16px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  td {
+    padding: 13px 16px;
+    border-bottom: 1px solid g.$line;
+    color: g.$ink-soft;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background: g.$green-tint;
+  }
+}
+
+.pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: g.$radius-pill;
+
+  &.g {
+    background: g.$pill-green-bg;
+    color: g.$green-700;
+  }
+
+  &.o {
+    background: g.$pill-orange-bg;
+    color: g.$pill-orange-fg;
+  }
+
+  &.b {
+    background: g.$pill-blue-bg;
+    color: g.$pill-blue-fg;
+  }
+}

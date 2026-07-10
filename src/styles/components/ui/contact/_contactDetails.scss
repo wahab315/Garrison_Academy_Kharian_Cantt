@@ -1,0 +1,34 @@
+@use "../../../globals" as g;
+
+// Was `style={{ alignItems: "stretch" }}`.
+.contact__split {
+  align-items: stretch;
+}
+
+// Was `style={{ marginBottom: 22 }}` on the first two cards.
+.contact__card + .contact__card {
+  margin-top: 22px;
+}
+
+// `.ct` and `.cv` were divs; Typography renders spans.
+.cinfo .ct,
+.cinfo .cv {
+  display: block;
+}
+
+// Was `style={{ textAlign: "center" }}` inside the map box.
+.contact__map-body {
+  text-align: center;
+}
+
+.contact__map-title {
+  display: block;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.contact__map-note {
+  display: block;
+  font-size: 0.82rem;
+  color: g.$ink-soft;
+}

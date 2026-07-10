@@ -1,0 +1,10 @@
+@use "../globals" as g;
+
+// Element-level defaults. The class-based heading styles live in
+// components/common/_typography.scss (`.heading__*`), which shares these
+// declarations through the `heading-base` mixin.
+h1,
+h2,
+h3 {
+  @include g.heading-base;
+}

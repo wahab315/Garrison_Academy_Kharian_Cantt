@@ -1,0 +1,32 @@
+@use "../globals" as g;
+
+.ctaband {
+  background: linear-gradient(135deg, g.$green-800, g.$green-900);
+  border-radius: 20px;
+  padding: 48px;
+  text-align: center;
+  color: g.$white;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -30px;
+    bottom: -30px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, g.$glow-gold-strong, transparent 65%);
+  }
+
+  h2 {
+    color: g.$white;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: g.$on-dark;
+    max-width: 52ch;
+    margin: 0 auto 26px;
+  }
+}

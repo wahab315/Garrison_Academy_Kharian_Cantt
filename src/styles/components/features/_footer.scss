@@ -1,0 +1,122 @@
+@use "../../globals" as g;
+
+footer {
+  background: g.$green-900;
+  color: g.$footer-text;
+  padding: 60px 0 0;
+  margin-top: 20px;
+
+  .ft p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: g.$footer-body;
+    max-width: 34ch;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      margin-bottom: 9px;
+
+      a {
+        font-size: 0.88rem;
+        color: g.$footer-body;
+        transition: 0.15s;
+
+        &:hover {
+          color: g.$gold-300;
+          padding-left: 3px;
+        }
+      }
+    }
+  }
+}
+
+.fcol__title {
+  display: block;
+  font-family: g.$inscription;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  color: g.$gold-300;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.fgrid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 36px;
+  padding-bottom: 44px;
+
+  @include g.respond(tab) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include g.respond(mobile-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fbrand {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 16px;
+
+  img {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.fbrand__name {
+  display: block;
+  font-family: g.$inscription;
+  font-weight: 700;
+  color: g.$white;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+
+.fbrand__sub {
+  display: block;
+  font-size: 0.7rem;
+  color: g.$gold-400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.fsoc {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+// The social buttons were anchors with no href; they are real buttons now.
+.fsoc__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: g.$white-a06;
+  display: grid;
+  place-items: center;
+  color: g.$footer-social;
+  transition: 0.18s;
+
+  &:hover {
+    background: g.$gold-500;
+    color: g.$white;
+  }
+}
+
+.fbot {
+  border-top: 1px solid g.$white-a08;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: g.$footer-bottom;
+}

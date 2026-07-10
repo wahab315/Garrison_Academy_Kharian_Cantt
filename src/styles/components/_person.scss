@@ -1,0 +1,46 @@
+@use "../globals" as g;
+
+.person {
+  text-align: center;
+
+  .ph {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, g.$green-tint, g.$paper-2);
+    border: 3px solid g.$gold-300;
+    display: grid;
+    place-items: center;
+    font-family: g.$display;
+    font-size: 2.2rem;
+    color: g.$green-700;
+    box-shadow: g.$shadow-sm;
+  }
+
+  .nm {
+    font-family: g.$display;
+    font-size: 1.2rem;
+    color: g.$green-900;
+  }
+
+  .role {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: g.$gold-600;
+    font-weight: 600;
+    margin: 4px 0 12px;
+  }
+
+  .msg {
+    font-size: 0.9rem;
+    color: g.$ink-soft;
+    text-align: left;
+    background: g.$paper-2;
+    border-left: 3px solid g.$gold-400;
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 8px;
+  }
+}

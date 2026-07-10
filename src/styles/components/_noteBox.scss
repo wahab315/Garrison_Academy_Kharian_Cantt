@@ -1,0 +1,11 @@
+@use "../globals" as g;
+
+.note-box {
+  background: g.$green-tint;
+  border: 1px solid g.$note-border;
+  border-left: 3px solid g.$green-600;
+  border-radius: 0 10px 10px 0;
+  padding: 16px 18px;
+  font-size: 0.9rem;
+  color: g.$green-800;
+}

@@ -1,0 +1,28 @@
+// Order mirrors the source order of the original globals.css. Several rules
+// tie on specificity (e.g. `p.lead` vs `.prose p`), so the cascade depends
+// on it. Do not reorder without re-running the screenshot diff.
+//
+// `common/` and `features/` are done. The flat partials below are holding
+// files for blocks that phase 8 re-homes into `ui/{page}/`.
+
+@forward "common";
+@forward "features";
+
+@forward "section";
+@forward "grid";
+@forward "card";
+@forward "person";
+@forward "prose";
+@forward "tile";
+@forward "statBand";
+@forward "table";
+@forward "form";
+@forward "steps";
+@forward "organogram";
+@forward "contactInfo";
+@forward "alumni";
+@forward "ctaBand";
+@forward "noteBox";
+
+// ui/ last: page-level rules override the shared blocks above on ties.
+@forward "ui";

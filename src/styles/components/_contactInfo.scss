@@ -1,0 +1,66 @@
+@use "../globals" as g;
+
+.cinfo {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid g.$line;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .ci {
+    width: 42px;
+    height: 42px;
+    flex: none;
+    border-radius: 11px;
+    background: g.$green-tint;
+    color: g.$green-700;
+    display: grid;
+    place-items: center;
+    font-size: 1.15rem;
+  }
+
+  .ct {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: g.$gold-600;
+    font-weight: 600;
+  }
+
+  .cv {
+    font-weight: 600;
+    color: g.$green-900;
+    font-size: 0.95rem;
+
+    span {
+      display: block;
+      font-weight: 400;
+      color: g.$ink-soft;
+      font-size: 0.88rem;
+    }
+  }
+}
+
+.mapbox {
+  background: g.$green-tint;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  height: 100%;
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: g.$green-700;
+  position: relative;
+  overflow: hidden;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Cpath d='M0 25h50M25 0v50' stroke='%232f6b3d18'/%3E%3C/svg%3E");
+
+  .pin {
+    font-size: 2.4rem;
+    animation: bob 2s ease-in-out infinite;
+  }
+}

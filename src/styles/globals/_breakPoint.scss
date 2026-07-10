@@ -1,0 +1,41 @@
+@use "sass:map";
+
+// The original stylesheet used ten distinct max-widths. All ten are preserved
+// for pixel parity; the px comment is the value each em resolves to at the
+// default 16px root font size.
+//
+// Consolidating these down to four is a separate, later task. Doing it here
+// would change layout at the edges and be blamed on the migration.
+$breakpoints: (
+  mobile-sm: 32.5em,
+  // 520
+  mobile: 35em,
+  // 560
+  mobile-lg: 38.75em,
+  // 620
+  phablet: 42.5em,
+  // 680
+  tab-sm: 52.5em,
+  // 840
+  tab-port: 53.75em,
+  // 860
+  tab: 55em,
+  // 880
+  tab-mid: 57.5em,
+  // 920
+  tab-land: 61.25em,
+  // 980
+  desktop: 67.5em, // 1080
+);
+
+@mixin respond($key) {
+  $size: map.get($breakpoints, $key);
+
+  @if $size == null {
+    @error "Unknown breakpoint `#{$key}`. Valid keys: #{map.keys($breakpoints)}";
+  }
+
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}

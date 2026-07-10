@@ -1,0 +1,7 @@
+@use "../../../globals" as g;
+
+// Was `style={{ maxWidth: 780, margin: "0 auto" }}` on each tab panel.
+.faqs__panel {
+  max-width: 780px;
+  margin: 0 auto;
+}

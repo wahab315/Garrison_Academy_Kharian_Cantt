@@ -1,0 +1,52 @@
+@use "../../globals" as g;
+
+// `as` picks the element, `classStyle` picks the look. Declarations are shared
+// with the legacy classes in utils/_typography.scss via mixins, so an <h4>
+// styled as heading__secondary looks the same as a legacy `.h-md`.
+
+$_heading-sizes: (
+  main: g.$size-h-xl,
+  primary: g.$size-h-lg,
+  secondary: g.$size-h-md,
+  tertiary: 1.18rem,
+);
+
+@each $name, $size in $_heading-sizes {
+  .heading__#{$name} {
+    @include g.heading-base;
+
+    font-size: $size;
+  }
+}
+
+.text__large {
+  @include g.lead;
+}
+
+.text__eyebrow {
+  @include g.eyebrow;
+}
+
+.text__body {
+  font-size: 0.92rem;
+  color: g.$ink-soft;
+}
+
+.text__small {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: g.$green-900;
+}
+
+.text__muted {
+  font-size: 0.82rem;
+  color: g.$ink-soft;
+}
+
+.text__error {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: g.$flame;
+}

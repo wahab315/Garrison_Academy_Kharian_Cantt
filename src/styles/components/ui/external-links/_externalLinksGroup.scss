@@ -1,0 +1,17 @@
+@use "../../../globals" as g;
+
+// Were `style={{ marginTop: 14, marginBottom: 34 }}` / `style={{ marginTop: 14 }}`.
+.external-links__grid {
+  margin-top: 14px;
+}
+
+.external-links__grid--spaced {
+  margin-bottom: 34px;
+}
+
+// Was `style={{ display: "flex", gap: 14 }}` on the `.more` span. The `.card`
+// prefix is required: `.card .more` is (0,2,0) and sets `gap: 6px`.
+.card .more.external-links__social {
+  display: flex;
+  gap: 14px;
+}

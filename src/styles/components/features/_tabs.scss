@@ -1,0 +1,43 @@
+@use "../../globals" as g;
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid g.$line;
+  margin-bottom: 34px;
+  padding-bottom: 0;
+
+  // Was an inline style on the Tabs component.
+  &--centered {
+    justify-content: center;
+  }
+}
+
+.tab {
+  padding: 11px 18px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: g.$ink-soft;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -1px;
+  transition: 0.18s;
+
+  &:hover {
+    color: g.$green-700;
+  }
+
+  &.active {
+    color: g.$green-800;
+    border-color: g.$gold-500;
+  }
+}
+
+.tabpane {
+  display: none;
+  animation: fade 0.35s;
+
+  &.active {
+    display: block;
+  }
+}

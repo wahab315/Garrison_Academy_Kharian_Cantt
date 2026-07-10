@@ -1,0 +1,20 @@
+@use "../../../globals" as g;
+
+// Was `style={{ marginBottom: 26 }}`.
+.uniform__notice {
+  margin-bottom: 26px;
+}
+
+// Was `style={{ marginTop: 14 }}` / `style={{ marginTop: 12 }}`.
+.uniform__set-list {
+  margin-top: 14px;
+}
+
+.uniform__note {
+  margin-top: 12px;
+}
+
+// Was `style={{ margin: 0 }}` on the <ul>; `.prose ul` sets 0 0 18px 4px.
+.prose .uniform__items {
+  margin: 0;
+}

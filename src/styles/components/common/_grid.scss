@@ -1,0 +1,24 @@
+@use "../../globals" as g;
+
+$_grid-versions: 2, 3, 4;
+
+@each $n in $_grid-versions {
+  .grid__version--#{$n} {
+    grid-template-columns: repeat($n, 1fr);
+  }
+}
+
+@include g.respond(tab-land) {
+  .grid__version--3,
+  .grid__version--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include g.respond(mobile-lg) {
+  .grid__version--2,
+  .grid__version--3,
+  .grid__version--4 {
+    grid-template-columns: 1fr;
+  }
+}

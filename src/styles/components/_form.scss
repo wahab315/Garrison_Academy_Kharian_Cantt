@@ -1,0 +1,67 @@
+@use "../globals" as g;
+
+.form {
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  padding: 30px;
+  box-shadow: g.$shadow-md;
+}
+
+.field {
+  margin-bottom: 18px;
+
+  label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: g.$green-900;
+    margin-bottom: 7px;
+
+    .req {
+      color: g.$flame;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid g.$line-strong;
+    border-radius: g.$radius-sm;
+    background: g.$cream;
+    font-family: inherit;
+    font-size: 0.92rem;
+    color: g.$ink;
+    transition: 0.18s;
+
+    &:focus {
+      outline: none;
+      border-color: g.$green-600;
+      box-shadow: g.$focus-ring;
+      background: g.$white;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 110px;
+  }
+}
+
+.frow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  @include g.respond(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formnote {
+  font-size: 0.82rem;
+  color: g.$ink-soft;
+  margin-top: 14px;
+}

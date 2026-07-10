@@ -1,0 +1,7 @@
+@use "../../../globals" as g;
+
+// Was `style={{ display: "grid", gap: 26 }}` -- `.grid` already sets
+// display:grid with a 22px gap.
+.messages__grid {
+  gap: 26px;
+}

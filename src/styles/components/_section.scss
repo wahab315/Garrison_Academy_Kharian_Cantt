@@ -1,0 +1,38 @@
+@use "../globals" as g;
+
+.sec {
+  padding: 72px 0;
+
+  &.tight {
+    padding: 48px 0;
+  }
+}
+
+.sec-head {
+  text-align: center;
+  max-width: 62ch;
+  margin: 0 auto 44px;
+
+  // Typography's eyebrow style emits `.text__eyebrow`; the legacy class is
+  // still rendered by pages phase 8 has not reached.
+  .eyebrow,
+  .text__eyebrow {
+    margin-bottom: 14px;
+  }
+
+  p {
+    color: g.$ink-soft;
+    margin-top: 12px;
+  }
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+
+  @include g.respond(tab-sm) {
+    grid-template-columns: 1fr;
+  }
+}
