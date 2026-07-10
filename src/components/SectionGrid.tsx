@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HOME_GRID } from "@/lib/data";
+import { HOME_GRID } from "@/data/data";
 
 export default function SectionGrid() {
   return (

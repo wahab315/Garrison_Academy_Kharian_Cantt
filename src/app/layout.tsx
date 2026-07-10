@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Cinzel, Fraunces, Inter, Noto_Naskh_Arabic } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { ToastProvider } from "@/components/Toast";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -53,13 +50,7 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${cinzel.variable} ${inter.variable} ${naskh.variable}`}
     >
-      <body>
-        <ToastProvider>
-          <Header />
-          <main id="main">{children}</main>
-          <Footer />
-        </ToastProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

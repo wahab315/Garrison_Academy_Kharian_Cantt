@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CHAT_QA } from "@/lib/data";
+import { CHAT_QA } from "@/data/data";
 
 type Msg = { from: "bot" | "user"; text: string };
 

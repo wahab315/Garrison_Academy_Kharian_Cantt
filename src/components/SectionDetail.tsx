@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageHead from "@/components/PageHead";
-import type { SectionData } from "@/lib/data";
+import type { SectionData } from "@/data/data";
+import { Routes } from "@/data/routes";
 
 function initials(name: string) {
   const parts = name.replace(/^(Mr\.|Mrs\.|Ms\.|Dr\.)\s*/, "").split(" ");
@@ -13,18 +14,18 @@ export default function SectionDetail({ data }: { data: SectionData }) {
   return (
     <>
       <PageHead
-        crumb={[{ label: "Home", href: "/" }, { label: "Quick Links", href: "/quick-links" }, { label: data.name }]}
+        crumb={[{ label: "Home", href: Routes.home }, { label: "Quick Links", href: Routes.quickLinks }, { label: data.name }]}
         eyebrow={data.sub}
         title={data.name}
       />
       <div className="sec">
         <div className="wrap">
-          <Link className="back" href="/quick-links">← All sections</Link>
+          <Link className="back" href={Routes.quickLinks}>← All sections</Link>
 
           <div className="split" style={{ marginBottom: 40, alignItems: "flex-start" }}>
             <div className="card person" style={{ maxWidth: 300 }}>
-              <div className="ph">{initials(data.head)}</div>
-              <div className="nm">{data.head}</div>
+              <div className="ph">{data.head ? initials(data.head) : "—"}</div>
+              <div className="nm">{data.head ?? "To be announced"}</div>
               <div className="role">Section Head</div>
               <div className="msg">{data.headMsg}</div>
             </div>

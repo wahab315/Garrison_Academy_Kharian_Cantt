@@ -2,6 +2,13 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import NotificationTicker from "@/components/NotificationTicker";
 import SectionGrid from "@/components/SectionGrid";
+import { Routes } from "@/data/routes";
+
+export const metadata = {
+  title: "Garrison Academy Kharian Cantt",
+  description:
+    "Academic excellence, discipline and character since 1985. Explore admissions for Session 2026, academic sections, scholarships and downloads.",
+};
 
 export default function HomePage() {
   return (
@@ -15,7 +22,7 @@ export default function HomePage() {
           <div className="grid g4">
             <Link className="card link" href="/admissions"><div className="ic">✎</div><h3>Admissions</h3><p>Apply online or download the registration form for Session 2026.</p><span className="more">Start application →</span></Link>
             <Link className="card link" href="/downloads"><div className="ic">↓</div><h3>Downloads</h3><p>Notifications, circulars, past papers and forms in one place.</p><span className="more">Open library →</span></Link>
-            <Link className="card link" href="/links"><div className="ic">↗</div><h3>Student &amp; Teacher LMS</h3><p>Access apms.pk and student.apms.pk learning portals.</p><span className="more">Go to portals →</span></Link>
+            <Link className="card link" href={Routes.externalLinks}><div className="ic">↗</div><h3>Student &amp; Teacher LMS</h3><p>Access apms.pk and student.apms.pk learning portals.</p><span className="more">Go to portals →</span></Link>
             <Link className="card link" href="/contact"><div className="ic">📍</div><h3>Contact &amp; Location</h3><p>Reach the right department — numbers, emails and campus map.</p><span className="more">Get in touch →</span></Link>
           </div>
         </div>

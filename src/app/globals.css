@@ -2007,6 +2007,63 @@ footer ul li a:hover {
 .back:hover {
   gap: 11px;
 }
+/* 404 */
+.notfound {
+  padding: 96px 0 108px;
+  background: linear-gradient(150deg, var(--green-800), var(--green-900));
+  color: #f0ece0;
+  position: relative;
+  overflow: hidden;
+}
+.notfound::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, #d4a24c22, transparent 65%);
+}
+.notfound .wrap {
+  position: relative;
+  z-index: 1;
+}
+.notfound .eyebrow {
+  color: var(--gold-300);
+}
+.notfound .eyebrow::before {
+  background: var(--gold-400);
+}
+.nf-code {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 0.9;
+  font-size: clamp(6rem, 18vw, 13rem);
+  color: transparent;
+  -webkit-text-stroke: 2px var(--gold-500);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.notfound .nf-title {
+  color: #fff;
+  margin: 14px 0 10px;
+}
+/* Outranks `p.lead`, which would otherwise paint dark ink on the dark band. */
+.notfound p.nf-lead {
+  color: #c8d6c3;
+}
+.nf-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+@media (max-width: 620px) {
+  .notfound {
+    padding: 64px 0 72px;
+  }
+}
+
 ::selection {
   background: var(--gold-300);
   color: var(--green-900);

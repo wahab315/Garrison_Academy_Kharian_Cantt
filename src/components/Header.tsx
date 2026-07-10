@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV, type NavItem } from "@/lib/data";
+import { NAV, type NavItem } from "@/data/data";
+import { Routes } from "@/data/routes";
 import { IoMail } from "react-icons/io5";
 
 import { MdPhone } from "react-icons/md";
@@ -64,7 +65,7 @@ export default function Header() {
               Student&apos;s AIS Login
             </a>
             <span className="dot" />
-            <Link href="/links">FBISE</Link>
+            <Link href={Routes.externalLinks}>FBISE</Link>
           </div>
         </div>
       </div>

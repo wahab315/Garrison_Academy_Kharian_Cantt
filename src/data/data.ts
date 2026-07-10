@@ -1,70 +1,87 @@
 // Central content/data for GAK Campus website.
 // In production these would be served from a CMS / admin panel.
 
+import { Routes } from "@/data/routes";
+
 export type MegaLink = { label: string; href: string; icon: string; desc: string };
 export type NavItem =
   | { label: string; href: string }
   | { label: string; mega: MegaLink[]; grid2?: boolean; alignRight?: boolean };
 
 export const NAV: NavItem[] = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: Routes.home },
   {
     label: "About",
     mega: [
-      { label: "About Us", href: "/about", icon: "H", desc: "History, founder & facilities" },
-      { label: "Messages", href: "/messages", icon: "M", desc: "Chairman, VC & Principal" },
-      { label: "Organogram", href: "/organogram", icon: "O", desc: "Academic & admin structure" },
-      { label: "Alumni — AMULNI", href: "/alumni", icon: "A", desc: "Ex-GAK & position holders" },
+      { label: "About Us", href: Routes.about, icon: "H", desc: "History, founder & facilities" },
+      { label: "Messages", href: Routes.messages, icon: "M", desc: "Chairman, VC & Principal" },
+      { label: "Organogram", href: Routes.organogram, icon: "O", desc: "Academic & admin structure" },
+      { label: "Alumni — AMULNI", href: Routes.alumni, icon: "A", desc: "Ex-GAK & position holders" },
     ],
   },
   {
     label: "Academics",
     grid2: true,
     mega: [
-      { label: "Pre-School", href: "/sections/pre", icon: "P", desc: "Foundation years" },
-      { label: "Junior Section", href: "#", icon: "J", desc: "Primary classes" },
-      { label: "Middle Girls Section", href: "#", icon: "MG", desc: "Middle years — girls" },
-      { label: "Middle Boys Section", href: "#", icon: "MB", desc: "Middle years — boys" },
-      { label: "Senior Girls Section", href: "#", icon: "SG", desc: "Board classes — girls" },
-      { label: "Senior Boys Section", href: "#", icon: "SB", desc: "Board classes — boys" },
-      { label: "APSIS", href: "/sections/apsis", icon: "A", desc: "Cambridge stream" },
-      { label: "Scholarships", href: "/scholarships", icon: "$", desc: "Incentives & policy" },
-      { label: "Activities", href: "/activities", icon: "★", desc: "Sports & co-curricular" },
+      { label: "Pre-School", href: Routes.section("pre"), icon: "P", desc: "Foundation years" },
+      { label: "Junior Section", href: Routes.section("junior"), icon: "J", desc: "Primary classes" },
+      { label: "Middle Girls Section", href: Routes.section("middle-girls"), icon: "MG", desc: "Middle years — girls" },
+      { label: "Middle Boys Section", href: Routes.section("middle-boys"), icon: "MB", desc: "Middle years — boys" },
+      { label: "Senior Girls Section", href: Routes.section("senior-girls"), icon: "SG", desc: "Board classes — girls" },
+      { label: "Senior Boys Section", href: Routes.section("senior-boys"), icon: "SB", desc: "Board classes — boys" },
+      { label: "APSIS", href: Routes.section("apsis"), icon: "A", desc: "Cambridge stream" },
+      { label: "Scholarships", href: Routes.scholarships, icon: "$", desc: "Incentives & policy" },
+      { label: "Activities", href: Routes.activities, icon: "★", desc: "Sports & co-curricular" },
     ],
   },
   {
     label: "Admissions",
     mega: [
-      { label: "Admissions", href: "/admissions", icon: "A", desc: "Apply online & criteria" },
-      { label: "School Uniform", href: "/uniform", icon: "U", desc: "Summer & winter" },
-      { label: "Downloads", href: "/downloads", icon: "↓", desc: "Forms, circulars, papers" },
-      { label: "FAQs", href: "/faqs", icon: "?", desc: "Common questions" },
+      { label: "Admissions", href: Routes.admissions, icon: "A", desc: "Apply online & criteria" },
+      { label: "School Uniform", href: Routes.uniform, icon: "U", desc: "Summer & winter" },
+      { label: "Downloads", href: Routes.downloads, icon: "↓", desc: "Forms, circulars, papers" },
+      { label: "FAQs", href: Routes.faqs, icon: "?", desc: "Common questions" },
     ],
   },
   {
     label: "More",
     alignRight: true,
     mega: [
-      { label: "HR & Careers", href: "/hr", icon: "HR", desc: "Staff hiring" },
-      { label: "External Links", href: "/links", icon: "↗", desc: "LMS, FBISE, social" },
-      { label: "Chatbot", href: "/chatbot", icon: "◎", desc: "Quick answers" },
-      { label: "Feedback / Complaints", href: "/feedback", icon: "✎", desc: "We're listening" },
+      { label: "HR & Careers", href: Routes.hr, icon: "HR", desc: "Staff hiring" },
+      { label: "External Links", href: Routes.externalLinks, icon: "↗", desc: "LMS, FBISE, social" },
+      { label: "Chatbot", href: Routes.chatbot, icon: "◎", desc: "Quick answers" },
+      { label: "Feedback / Complaints", href: Routes.feedback, icon: "✎", desc: "We're listening" },
     ],
   },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: Routes.contact },
 ];
 
-export type SectionKey = "pre" | "middle" | "senior" | "apsis";
+export type SectionKey =
+  | "pre"
+  | "junior"
+  | "middle-girls"
+  | "middle-boys"
+  | "senior-girls"
+  | "senior-boys"
+  | "apsis";
+
 export type SectionData = {
   name: string;
   sub: string;
-  head: string;
+  /** Unset where the post is vacant or the appointment is not yet published. */
+  head?: string;
   headMsg: string;
   cambridge?: boolean;
   board?: boolean;
   extra?: string;
 };
 
+/**
+ * The gender-split middle and senior sections inherit the institutional copy
+ * of the former combined `middle` / `senior` entries. Their section heads are
+ * deliberately left unset rather than invented; render sites fall back to a
+ * "to be announced" placeholder.
+ */
 export const SECTIONS: Record<SectionKey, SectionData> = {
   pre: {
     name: "Pre-School",
@@ -74,17 +91,34 @@ export const SECTIONS: Record<SectionKey, SectionData> = {
       "Our Pre-School nurtures curiosity through play-based, child-centred learning in a warm and secure environment.",
     extra: "Same structure followed for Junior Section.",
   },
-  middle: {
-    name: "Middle School",
-    sub: "Classes VI – VIII",
-    head: "Mr. Imran Shah",
+  junior: {
+    name: "Junior Section",
+    sub: "Primary Classes",
+    headMsg:
+      "The junior years consolidate literacy, numeracy and study habits, carrying forward the child-centred approach of the Pre-School.",
+  },
+  "middle-girls": {
+    name: "Middle Girls Section",
+    sub: "Classes VI – VIII · Girls",
     headMsg:
       "The middle years build strong academic foundations and study habits that carry students confidently into the board classes.",
   },
-  senior: {
-    name: "Senior School",
-    sub: "FBISE — Classes IX – XII",
-    head: "Mrs. Farah Naz",
+  "middle-boys": {
+    name: "Middle Boys Section",
+    sub: "Classes VI – VIII · Boys",
+    headMsg:
+      "The middle years build strong academic foundations and study habits that carry students confidently into the board classes.",
+  },
+  "senior-girls": {
+    name: "Senior Girls Section",
+    sub: "FBISE — Classes IX – XII · Girls",
+    headMsg:
+      "Our senior school delivers rigorous, board-focused teaching with consistent top results in FBISE examinations.",
+    board: true,
+  },
+  "senior-boys": {
+    name: "Senior Boys Section",
+    sub: "FBISE — Classes IX – XII · Boys",
     headMsg:
       "Our senior school delivers rigorous, board-focused teaching with consistent top results in FBISE examinations.",
     board: true,
@@ -100,22 +134,22 @@ export const SECTIONS: Record<SectionKey, SectionData> = {
 };
 
 export const HOME_GRID: { href: string; label: string; icon: string; desc: string }[] = [
-  { href: "/messages", label: "Messages", icon: "💬", desc: "Chairman, VC & Principal" },
-  { href: "/about", label: "About Us", icon: "🏛️", desc: "History, founder & facilities" },
-  { href: "/organogram", label: "Organogram", icon: "🗂️", desc: "Academic & admin structure" },
-  { href: "/quick-links", label: "Quick Links", icon: "🔗", desc: "Section-wise information" },
-  { href: "/scholarships", label: "Scholarships", icon: "🎓", desc: "Incentives & policy" },
-  { href: "/uniform", label: "School Uniform", icon: "👔", desc: "Summer & winter" },
-  { href: "/alumni", label: "Alumni", icon: "🌟", desc: "Ex-GAK & top holders" },
-  { href: "/activities", label: "Activities", icon: "⚽", desc: "Sports & co-curricular" },
-  { href: "/admissions", label: "Admissions", icon: "✎", desc: "Apply for Session 2026" },
-  { href: "/hr", label: "HR & Careers", icon: "💼", desc: "Staff hiring" },
-  { href: "/links", label: "External Links", icon: "↗", desc: "LMS, FBISE, social" },
-  { href: "/faqs", label: "FAQs", icon: "❓", desc: "Common questions" },
-  { href: "/chatbot", label: "Chatbot", icon: "◎", desc: "Instant answers" },
-  { href: "/contact", label: "Contact Us", icon: "📍", desc: "Numbers, email, map" },
-  { href: "/downloads", label: "Downloads", icon: "↓", desc: "Forms & circulars" },
-  { href: "/feedback", label: "Feedback", icon: "✍️", desc: "Complaints & suggestions" },
+  { href: Routes.messages, label: "Messages", icon: "💬", desc: "Chairman, VC & Principal" },
+  { href: Routes.about, label: "About Us", icon: "🏛️", desc: "History, founder & facilities" },
+  { href: Routes.organogram, label: "Organogram", icon: "🗂️", desc: "Academic & admin structure" },
+  { href: Routes.quickLinks, label: "Quick Links", icon: "🔗", desc: "Section-wise information" },
+  { href: Routes.scholarships, label: "Scholarships", icon: "🎓", desc: "Incentives & policy" },
+  { href: Routes.uniform, label: "School Uniform", icon: "👔", desc: "Summer & winter" },
+  { href: Routes.alumni, label: "Alumni", icon: "🌟", desc: "Ex-GAK & top holders" },
+  { href: Routes.activities, label: "Activities", icon: "⚽", desc: "Sports & co-curricular" },
+  { href: Routes.admissions, label: "Admissions", icon: "✎", desc: "Apply for Session 2026" },
+  { href: Routes.hr, label: "HR & Careers", icon: "💼", desc: "Staff hiring" },
+  { href: Routes.externalLinks, label: "External Links", icon: "↗", desc: "LMS, FBISE, social" },
+  { href: Routes.faqs, label: "FAQs", icon: "❓", desc: "Common questions" },
+  { href: Routes.chatbot, label: "Chatbot", icon: "◎", desc: "Instant answers" },
+  { href: Routes.contact, label: "Contact Us", icon: "📍", desc: "Numbers, email, map" },
+  { href: Routes.downloads, label: "Downloads", icon: "↓", desc: "Forms & circulars" },
+  { href: Routes.feedback, label: "Feedback", icon: "✍️", desc: "Complaints & suggestions" },
 ];
 
 export const FAQ_DATA: Record<string, { label: string; items: { q: string; a: string }[] }> = {
