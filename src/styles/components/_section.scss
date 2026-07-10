@@ -13,7 +13,10 @@
   max-width: 62ch;
   margin: 0 auto 44px;
 
-  .eyebrow {
+  // Typography's eyebrow style emits `.text__eyebrow`; the legacy class is
+  // still rendered by pages phase 8 has not reached.
+  .eyebrow,
+  .text__eyebrow {
     margin-bottom: 14px;
   }
 

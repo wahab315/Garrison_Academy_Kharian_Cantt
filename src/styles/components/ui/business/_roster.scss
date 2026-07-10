@@ -1,0 +1,7 @@
+@use "../../../globals" as g;
+
+// `.nm` and `.ps` were divs; Typography renders spans.
+.alum .nm,
+.alum .ps {
+  display: block;
+}

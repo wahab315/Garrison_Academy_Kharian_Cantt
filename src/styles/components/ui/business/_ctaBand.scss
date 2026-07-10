@@ -1,0 +1,11 @@
+@use "../../../globals" as g;
+
+// Was an inline colour override on the eyebrow inside the dark band.
+.ctaband .ctaband__eyebrow {
+  color: g.$gold-300;
+}
+
+// Was `style={{ marginBottom: 12 }}`.
+.ctaband .ctaband__heading {
+  margin-bottom: 12px;
+}

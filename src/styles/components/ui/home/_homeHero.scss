@@ -1,4 +1,4 @@
-@use "../globals" as g;
+@use "../../../globals" as g;
 
 .hero {
   position: relative;
@@ -50,7 +50,7 @@
     );
   }
 
-  .wrap {
+  .container {
     z-index: 3;
     display: block;
     padding: 104px 24px 112px;
@@ -61,7 +61,7 @@
     max-width: 640px;
   }
 
-  .eyebrow {
+  .text__eyebrow {
     color: g.$gold-300;
 
     &::before {
@@ -105,7 +105,7 @@
   @include g.respond(tab-mid) {
     min-height: 520px;
 
-    .wrap {
+    .container {
       padding: 74px 24px 84px;
     }
   }

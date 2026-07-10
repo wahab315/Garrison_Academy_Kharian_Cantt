@@ -1,0 +1,6 @@
+@use "../../../globals" as g;
+
+// Was `style={{ background: "var(--paper-2)" }}` on the home principal band.
+.sec--alt {
+  background: g.$paper-2;
+}

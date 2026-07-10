@@ -10,7 +10,6 @@
 
 @forward "container";
 @forward "view";
-@forward "hero";
 @forward "button";
 @forward "section";
 @forward "grid";
@@ -28,3 +27,6 @@
 @forward "alumni";
 @forward "ctaBand";
 @forward "noteBox";
+
+// ui/ last: page-level rules override the shared blocks above on ties.
+@forward "ui";

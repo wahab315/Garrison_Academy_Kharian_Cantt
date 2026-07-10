@@ -1,0 +1,17 @@
+@use "../../../globals" as g;
+
+// The original stylesheet set four different card-heading sizes with inline
+// styles. They are explicit modifiers now. The `.card` prefix is required:
+// `.card h3` is (0,1,1), so a bare `.card__title--sm` would lose on
+// specificity no matter where it sits in the cascade.
+.card .card__title--sm {
+  font-size: 1.12rem;
+}
+
+.card .card__title--xs {
+  font-size: 1.1rem;
+}
+
+.card .card__title--xxs {
+  font-size: 1.05rem;
+}

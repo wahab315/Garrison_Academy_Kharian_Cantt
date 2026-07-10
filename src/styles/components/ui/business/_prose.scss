@@ -1,0 +1,6 @@
+@use "../../../globals" as g;
+
+// Was `style={{ marginTop: 0 }}` on a leading <h3>.
+.prose .prose__heading--first {
+  margin-top: 0;
+}

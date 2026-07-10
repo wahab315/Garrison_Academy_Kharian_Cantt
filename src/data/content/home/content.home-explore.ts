@@ -3,7 +3,7 @@ import type { BusinessCardGridProps } from "@/data/types/type.business-card-grid
 
 export const homeExploreContent = {
   eyebrow: "Explore the Campus",
-  heading: "Everything about GAK, in one place.",
+  heading: "Everything about GAK,\nin one place.",
   description:
     "Browse every section of the school — from messages and academics to admissions, alumni and downloads.",
   version: "4",

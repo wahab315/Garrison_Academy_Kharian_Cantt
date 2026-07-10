@@ -1,0 +1,48 @@
+@use "../../../globals" as g;
+
+// `.nm` and `.role` were divs; Typography renders spans, so they need to stack.
+.person .nm,
+.person .role {
+  display: block;
+}
+
+// The messages page laid its cards out left-aligned with a header row.
+.person--message {
+  text-align: left;
+
+  .ph {
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  .nm {
+    margin-top: 0;
+  }
+}
+
+.person__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.person__para {
+  margin-bottom: 12px;
+}
+
+.person__para--last {
+  margin-bottom: 0;
+}
+
+// The home principal portrait was a 64px inline-styled circle.
+.person.person--inline {
+  margin: 0;
+
+  .ph {
+    width: 64px;
+    height: 64px;
+    font-size: 1.4rem;
+    margin: 0;
+  }
+}
