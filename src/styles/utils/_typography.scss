@@ -1,34 +1,17 @@
 @use "../globals" as g;
 
-// These become the `classStyle` targets of the Typography primitive in phase 5.
+// Legacy class names, still used by pages that phase 8 has not reached yet.
+// They share their declarations with the BEM classes in
+// components/common/_typography.scss via the mixins in globals/_typography.
 
 .eyebrow {
-  font-family: g.$inscription;
-  font-size: 0.72rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: g.$gold-600;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6em;
-
-  &::before {
-    content: "";
-    width: 26px;
-    height: 1px;
-    background: g.$gold-500;
-  }
+  @include g.eyebrow;
 }
 
 h1,
 h2,
 h3 {
-  font-family: g.$display;
-  font-weight: 600;
-  line-height: 1.12;
-  color: g.$green-900;
-  letter-spacing: -0.01em;
+  @include g.heading-base;
 }
 
 .h-xl {
@@ -44,7 +27,5 @@ h3 {
 }
 
 p.lead {
-  font-size: 1.08rem;
-  color: g.$ink-soft;
-  max-width: 62ch;
+  @include g.lead;
 }

@@ -1,0 +1,7 @@
+@use "../../globals" as g;
+
+.container {
+  max-width: g.$max-width;
+  margin: 0 auto;
+  padding: 0 g.$gutter;
+}

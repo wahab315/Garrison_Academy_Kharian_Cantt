@@ -5,6 +5,9 @@
 // These are flat holding files. Phases 5-8 re-home each one into
 // `common/`, `features/` or `ui/{page}/` as its component is rebuilt.
 
+// Primitives first: page and feature rules layer on top of them.
+@forward "common";
+
 @forward "container";
 @forward "view";
 @forward "header";

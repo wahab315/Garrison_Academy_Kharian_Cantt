@@ -1,31 +1,24 @@
-@use "../globals" as g;
+@use "../../globals" as g;
 
-// Becomes the <Grid version="..."> primitive in phase 5.
-.grid {
-  display: grid;
-  gap: 22px;
-}
-
-// The column counts are generated rather than written three times.
 $_grid-versions: 2, 3, 4;
 
 @each $n in $_grid-versions {
-  .g#{$n} {
+  .grid__version--#{$n} {
     grid-template-columns: repeat($n, 1fr);
   }
 }
 
 @include g.respond(tab-land) {
-  .g3,
-  .g4 {
+  .grid__version--3,
+  .grid__version--4 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @include g.respond(mobile-lg) {
-  .g2,
-  .g3,
-  .g4 {
+  .grid__version--2,
+  .grid__version--3,
+  .grid__version--4 {
     grid-template-columns: 1fr;
   }
 }

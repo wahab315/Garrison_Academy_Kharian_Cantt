@@ -1,0 +1,91 @@
+@use "../../globals" as g;
+
+// Shared by input / textarea / select so the three can never drift.
+@mixin _control {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid g.$line-strong;
+  border-radius: g.$radius-sm;
+  background: g.$cream;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: g.$ink;
+  transition: 0.18s;
+
+  &:focus {
+    outline: none;
+    border-color: g.$green-600;
+    box-shadow: g.$focus-ring;
+    background: g.$white;
+  }
+}
+
+.form-field {
+  margin-bottom: 18px;
+
+  &--inline {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.form-field__label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.form-field__required {
+  color: g.$flame;
+}
+
+.form-field__error {
+  // .text__error carries the visual style; this element only exists so the
+  // error has a stable id for aria-describedby.
+  min-height: 1em;
+}
+
+.input {
+  @include _control;
+}
+
+.textarea {
+  @include _control;
+
+  resize: vertical;
+  min-height: 110px;
+}
+
+.select {
+  @include _control;
+}
+
+.input--invalid {
+  border-color: g.$flame;
+
+  &:focus {
+    border-color: g.$flame;
+    box-shadow: 0 0 0 3px rgba(g.$flame, 0.15);
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.checkbox__control {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  accent-color: g.$green-600;
+  cursor: pointer;
+}
+
+.checkbox__label {
+  font-weight: 400;
+  font-size: 0.88rem;
+  color: g.$ink-soft;
+}
