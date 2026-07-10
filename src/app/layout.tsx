@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Cinzel, Fraunces, Inter, Noto_Naskh_Arabic } from "next/font/google";
-import "./globals.css";
+import "@/styles/main.scss";
 
 const fraunces = Fraunces({
   subsets: ["latin"],

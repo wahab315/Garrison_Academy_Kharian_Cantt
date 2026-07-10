@@ -1,0 +1,45 @@
+@use "../globals" as g;
+
+.steps {
+  counter-reset: st;
+  display: grid;
+  gap: 18px;
+}
+
+.step {
+  display: flex;
+  gap: 18px;
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  padding: 20px 22px;
+  box-shadow: g.$shadow-sm;
+
+  &::before {
+    counter-increment: st;
+    content: counter(st);
+    flex: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, g.$gold-500, g.$gold-600);
+    color: g.$white;
+    display: grid;
+    place-items: center;
+    font-family: g.$display;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-family: g.$display;
+    font-size: 1.1rem;
+    color: g.$green-900;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: g.$ink-soft;
+  }
+}

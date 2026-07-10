@@ -1,0 +1,50 @@
+@use "../globals" as g;
+
+.pagehead {
+  background: linear-gradient(150deg, g.$green-800, g.$green-900);
+  color: g.$on-dark-strong;
+  padding: 54px 0 60px;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, g.$glow-gold, transparent 65%);
+  }
+
+  .eyebrow {
+    color: g.$gold-300;
+
+    &::before {
+      background: g.$gold-400;
+    }
+  }
+
+  h1 {
+    color: g.$white;
+    margin: 14px 0 10px;
+  }
+
+  .crumb {
+    font-size: 0.8rem;
+    color: g.$on-dark-muted;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    a:hover {
+      color: g.$gold-300;
+    }
+  }
+
+  p {
+    color: g.$on-dark;
+    max-width: 60ch;
+    margin-top: 8px;
+  }
+}

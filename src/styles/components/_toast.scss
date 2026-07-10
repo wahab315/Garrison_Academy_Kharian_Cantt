@@ -1,0 +1,36 @@
+@use "../globals" as g;
+
+.toast {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: g.$green-800;
+  color: g.$white;
+  padding: 14px 24px;
+  border-radius: g.$radius-pill;
+  box-shadow: g.$shadow-lg;
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 200;
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  &.show {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .ck {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: g.$gold-400;
+    color: g.$green-900;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 0.8rem;
+  }
+}

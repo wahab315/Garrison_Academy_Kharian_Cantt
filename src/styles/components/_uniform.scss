@@ -1,0 +1,62 @@
+@use "../globals" as g;
+
+.uni {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+
+  @include g.respond(mobile-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.unicard {
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  overflow: hidden;
+  box-shadow: g.$shadow-sm;
+
+  .hd {
+    padding: 16px 20px;
+    background: g.$green-800;
+    color: g.$white;
+    font-family: g.$display;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .se {
+      font-size: 0.74rem;
+      font-family: g.$body;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: g.$gold-300;
+    }
+  }
+
+  .bd {
+    padding: 20px;
+
+    li {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px dashed g.$line;
+      font-size: 0.9rem;
+      color: g.$ink-soft;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      b {
+        color: g.$green-900;
+        min-width: 90px;
+      }
+    }
+  }
+}

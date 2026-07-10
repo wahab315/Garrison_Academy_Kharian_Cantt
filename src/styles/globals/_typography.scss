@@ -1,0 +1,12 @@
+// Font stacks. The --font-* custom properties are injected on <html> by
+// next/font in the root layout, so these must stay as var() references.
+
+$display: var(--font-fraunces), Georgia, serif;
+$inscription: var(--font-cinzel), serif;
+$body: var(--font-inter), -apple-system, system-ui, sans-serif;
+$urdu: var(--font-naskh), serif;
+
+// Fluid heading sizes
+$size-h-xl: clamp(2.4rem, 5.4vw, 4rem);
+$size-h-lg: clamp(1.9rem, 3.6vw, 2.9rem);
+$size-h-md: clamp(1.35rem, 2.4vw, 1.8rem);

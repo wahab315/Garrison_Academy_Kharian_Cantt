@@ -1,0 +1,79 @@
+// Brand palette. Taken verbatim from the :root block of the original
+// globals.css -- these already match the school crest. Do not invent new ones.
+
+$green-900: #15301a;
+$green-800: #1c4326;
+$green-700: #235230;
+$green-600: #2f6b3d;
+$green-500: #3d7d4b;
+$green-tint: #e8efe6;
+
+$gold-600: #a5732f;
+$gold-500: #c08a3e;
+$gold-400: #d4a24c;
+$gold-300: #e6c684;
+
+$flame: #e8633a;
+$flame-2: #f7a13c;
+
+$cream: #f7f3e9;
+$paper: #fffdf7;
+$paper-2: #f3ede0;
+
+$ink: #1b211b;
+$ink-soft: #4a534a;
+
+$line: #e2dac8;
+$line-strong: #cdbf9f;
+
+$white: #fff;
+$black: #000; // gradient/mask stops only, never a surface
+
+// ---------------------------------------------------------------------------
+// Support palette: one-off values the original stylesheet used inline. Named
+// after the role they play so they are greppable, not after their hue.
+// ---------------------------------------------------------------------------
+
+// Dark surfaces (utility strip, page head, footer, CTA band)
+$on-dark-strong: #f0ece0; // page-head body text
+$on-dark: #c8d6c3; // page-head / CTA band paragraphs
+$on-dark-muted: #a9bca4; // breadcrumbs
+$util-text: #d8e4d4;
+$util-link: #cfe0cb;
+$ticker-text: #eef3ec;
+$ticker-item: #dfe9db;
+$footer-text: #bdcab8;
+$footer-body: #a8b8a3;
+$footer-bottom: #8ca086;
+$footer-social: #cdd9c8;
+$motto-translation: #e7e0cf;
+
+// Chat
+$chat-online: #7fdc8f;
+$chat-status: #bfe0c4;
+$note-border: #cfe0cb;
+
+// Pills
+$pill-green-bg: #e2f0e2;
+$pill-orange-bg: #fdeadf;
+$pill-orange-fg: #b5562a;
+$pill-blue-bg: #e4eef0;
+$pill-blue-fg: #2c6470;
+
+// ---------------------------------------------------------------------------
+// Alpha derivations. Kept as functions of the brand colours rather than baked
+// hex so a palette change propagates.
+// ---------------------------------------------------------------------------
+
+$header-bg: rgba($cream, 0.92);
+$scrim: rgba($green-900, 0.45);
+
+$white-a08: rgba($white, 0.0784); // #ffffff14
+$white-a06: rgba($white, 0.0627); // #ffffff10
+$white-a07: rgba($white, 0.0706); // #ffffff12
+$white-a33: rgba($white, 0.3333); // #ffffff55
+$white-a42: rgba($white, 0.42);
+$white-a90: rgba($white, 0.9);
+
+$glow-gold: rgba($gold-400, 0.1333); // #d4a24c22
+$glow-gold-strong: rgba($gold-400, 0.1451); // #d4a24c25

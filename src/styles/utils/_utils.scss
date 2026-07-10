@@ -1,0 +1,21 @@
+@use "../globals" as g;
+
+// Genuine single-purpose utilities only. Anything that describes a component
+// belongs in `styles/components/`.
+
+.urdu {
+  font-family: g.$urdu;
+  direction: rtl;
+}
+
+.center {
+  text-align: center;
+}
+
+.mt {
+  margin-top: 18px;
+}
+
+.mt2 {
+  margin-top: 30px;
+}

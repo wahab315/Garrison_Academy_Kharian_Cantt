@@ -1,0 +1,8 @@
+@use "../globals" as g;
+
+// Becomes the <Container> primitive in phase 5.
+.wrap {
+  max-width: g.$max-width;
+  margin: 0 auto;
+  padding: 0 g.$gutter;
+}

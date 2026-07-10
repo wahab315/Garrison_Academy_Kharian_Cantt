@@ -1,0 +1,35 @@
+@use "../globals" as g;
+
+.prose {
+  p {
+    margin-bottom: 16px;
+    color: g.$ink-soft;
+  }
+
+  h3 {
+    margin: 26px 0 10px;
+  }
+
+  ul {
+    margin: 0 0 18px 4px;
+    list-style: none;
+
+    li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 10px;
+      color: g.$ink-soft;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 8px;
+        height: 8px;
+        background: g.$gold-500;
+        border-radius: 50%;
+      }
+    }
+  }
+}

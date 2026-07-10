@@ -1,0 +1,50 @@
+@use "../globals" as g;
+
+.tile {
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  overflow: hidden;
+  box-shadow: g.$shadow-sm;
+  transition:
+    transform 0.22s,
+    box-shadow 0.22s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: g.$shadow-md;
+  }
+
+  .top {
+    height: 120px;
+    background: linear-gradient(135deg, g.$green-700, g.$green-600);
+    display: grid;
+    place-items: center;
+    color: g.$white;
+    font-size: 2.2rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%23ffffff10'/%3E%3C/svg%3E");
+    }
+  }
+
+  .bd {
+    padding: 18px;
+
+    h4 {
+      font-family: g.$display;
+      font-size: 1.05rem;
+      color: g.$green-900;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 0.86rem;
+      color: g.$ink-soft;
+    }
+  }
+}

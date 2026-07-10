@@ -1,0 +1,35 @@
+// Order mirrors the source order of the original globals.css. Several rules
+// tie on specificity (e.g. `p.lead` vs `.prose p`), so the cascade depends on
+// it. Do not reorder without re-running the screenshot diff.
+//
+// These are flat holding files. Phases 5-8 re-home each one into
+// `common/`, `features/` or `ui/{page}/` as its component is rebuilt.
+
+@forward "container";
+@forward "view";
+@forward "header";
+@forward "hero";
+@forward "button";
+@forward "notificationTicker";
+@forward "pageHead";
+@forward "section";
+@forward "grid";
+@forward "card";
+@forward "person";
+@forward "tabs";
+@forward "prose";
+@forward "tile";
+@forward "statBand";
+@forward "table";
+@forward "accordion";
+@forward "form";
+@forward "toast";
+@forward "steps";
+@forward "organogram";
+@forward "uniform";
+@forward "chatbot";
+@forward "contactInfo";
+@forward "alumni";
+@forward "ctaBand";
+@forward "footer";
+@forward "noteBox";

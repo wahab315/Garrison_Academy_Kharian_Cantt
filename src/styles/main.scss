@@ -1,0 +1,9 @@
+// The one and only stylesheet entry point. Imported exactly once, in the root
+// layout. Never import SCSS from a .tsx file.
+//
+// `globals/` emits no CSS -- it is tokens only -- so it is not forwarded here;
+// partials `@use` it directly.
+
+@forward "utils";
+@forward "components";
+@forward "modules";

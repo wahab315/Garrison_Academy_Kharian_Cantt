@@ -1,0 +1,89 @@
+@use "../globals" as g;
+
+.org {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+
+  .node {
+    background: g.$paper;
+    border: 1.5px solid g.$line-strong;
+    border-radius: 12px;
+    padding: 14px 22px;
+    text-align: center;
+    box-shadow: g.$shadow-sm;
+    min-width: 180px;
+
+    &.top {
+      background: linear-gradient(135deg, g.$green-700, g.$green-600);
+      color: g.$white;
+      border-color: transparent;
+
+      .t {
+        color: g.$white;
+      }
+
+      .s {
+        color: g.$util-link;
+      }
+    }
+
+    .t {
+      font-family: g.$display;
+      font-weight: 600;
+      color: g.$green-900;
+      font-size: 1rem;
+    }
+
+    .s {
+      font-size: 0.76rem;
+      color: g.$ink-soft;
+    }
+  }
+
+  .connector {
+    width: 2px;
+    height: 26px;
+    background: g.$line-strong;
+  }
+
+  .row {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -26px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: g.$line-strong;
+    }
+  }
+
+  .branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .connector.up {
+      height: 26px;
+    }
+  }
+
+  @include g.respond(phablet) {
+    .row {
+      flex-direction: column;
+      gap: 14px;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
