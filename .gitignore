@@ -9,3 +9,8 @@ npm-debug.log*
 next-env.d.ts
 .vercel
 /.turbo
+
+# refactor visual-regression baseline
+/.refactor-baseline
+/.refactor-shots
+tsconfig.tsbuildinfo
