@@ -1,0 +1,7 @@
+@use "../../../globals" as g;
+
+// `.t` and `.s` were divs; Typography renders spans.
+.org .node .t,
+.org .node .s {
+  display: block;
+}
