@@ -3,44 +3,50 @@
  * Folder layout mirrors the page that owns the asset; `common/` is shared.
  *
  * ---------------------------------------------------------------------------
- * HOME PAGE SHOT LIST (for the client's photographer)
- * The home page is built to these paths. Until a real photo is dropped in, each
- * <Image> falls back to a brand gradient, so a missing file never breaks the
- * layout -- it just looks plain. Replace, keeping the filename and ratio.
+ * HOME PAGE IMAGES
+ * Only the three hero stills exist in `public/` today, so every other slot
+ * below currently REUSES one of them as an interim stand-in -- that is why the
+ * page shows real photos rather than blank gradients. Each entry notes the real
+ * shot it should hold; when the photographer supplies it, drop the file in the
+ * commented path and point the entry at it.
  *
- *   hero.portrait   4:5   Campus facade, main gate, or a morning assembly.
- *                         The single most important photo -- it is the hero.
- *   principal       1:1   Head-and-shoulders portrait of the Principal.
- *   pathway/*       3:2   One photo per academic section (pre..apsis).
- *   campus/*        3:2   Sports, science labs, the library, an event/function.
+ *   heroPortrait   4:5   Campus facade, main gate, or a morning assembly.
+ *   principal      1:1   Head-and-shoulders portrait of the Principal.
+ *   pathway/*      3:2   One photo per academic section (pre..apsis).
+ *   campus/*       3:2   Sports, science labs, the library, an event/function.
  * ---------------------------------------------------------------------------
  */
+const HERO_1 = "/home/hero/hero-1.jpg";
+const HERO_2 = "/home/hero/hero-2.jpg";
+const HERO_3 = "/home/hero/hero-3.jpg";
+
 export const Assets = {
   logo: "/common/logo.png",
   home: {
-    // Legacy slider stills. Kept so nothing else that references them breaks;
-    // hero.portrait is what the rebuilt hero uses.
-    hero: [
-      "/home/hero/hero-1.jpg",
-      "/home/hero/hero-2.jpg",
-      "/home/hero/hero-3.jpg",
-    ],
-    // The rebuilt hero's framed image. Defaults to the first legacy still until
-    // a proper 4:5 campus photo is supplied.
-    heroPortrait: "/home/hero/hero-1.jpg",
-    principal: "/home/principal.jpg",
+    // Legacy slider stills. The three real photos we currently have.
+    hero: [HERO_1, HERO_2, HERO_3],
+
+    // The rebuilt hero's framed image.  → real: /home/hero/hero-1.jpg (4:5 crop)
+    heroPortrait: HERO_1,
+
+    // Principal portrait.               → real: /home/principal.jpg
+    principal: HERO_2,
+
+    // One per academic section.         → real: /home/pathway/<key>.jpg
     pathway: {
-      pre: "/home/pathway/pre.jpg",
-      junior: "/home/pathway/junior.jpg",
-      middle: "/home/pathway/middle.jpg",
-      senior: "/home/pathway/senior.jpg",
-      apsis: "/home/pathway/apsis.jpg",
+      pre: HERO_1,
+      junior: HERO_2,
+      middle: HERO_3,
+      senior: HERO_1,
+      apsis: HERO_2,
     },
+
+    // Campus-life carousel.             → real: /home/campus/<key>.jpg
     campus: {
-      sports: "/home/campus/sports.jpg",
-      labs: "/home/campus/labs.jpg",
-      library: "/home/campus/library.jpg",
-      events: "/home/campus/events.jpg",
+      sports: HERO_3,
+      labs: HERO_1,
+      library: HERO_2,
+      events: HERO_3,
     },
   },
 } as const;
