@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import Box from "@/common/box";
 import Button from "@/common/button";
+import IconChevron from "@/assets/home/icon.chevron";
 
 export type CarouselProps = {
   /** Names the carousel region for assistive tech, e.g. "Academic pathway". */
@@ -20,46 +21,76 @@ export type CarouselProps = {
  */
 export default function Carousel({ label, slides }: CarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
+  // `active` drives the dot highlight (nearest slide to the viewport centre).
   const [active, setActive] = useState(0);
+  // Arrow disabling is based on real scroll position, not `active` -- with
+  // several cards visible the centre slide is well ahead of the left edge, so
+  // the two must not be conflated (that bug made the back arrow a no-op).
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
   const count = slides.length;
 
-  const goTo = useCallback(
-    (i: number) => {
-      const track = trackRef.current;
-      if (!track) return;
-      const clamped = Math.max(0, Math.min(i, count - 1));
-      const el = track.querySelectorAll<HTMLElement>("[data-slide]")[clamped];
-      if (el) track.scrollTo({ left: el.offsetLeft, behavior: "smooth" });
-    },
-    [count],
-  );
+  const slideEls = () =>
+    Array.from(
+      trackRef.current?.querySelectorAll<HTMLElement>("[data-slide]") ?? [],
+    );
 
-  // Derive the active slide from scroll position (the nearest to centre).
+  /** Scroll a specific slide to the left edge (used by the dots). */
+  const goTo = useCallback((i: number) => {
+    const track = trackRef.current;
+    const el = slideEls()[Math.max(0, Math.min(i, count - 1))];
+    if (track && el) track.scrollTo({ left: el.offsetLeft, behavior: "smooth" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
+
+  /** Step one slide from the CURRENT scroll position (used by the arrows). */
+  const step = useCallback((dir: 1 | -1) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const els = slideEls();
+    const cur = track.scrollLeft;
+    const EPS = 4; // ignore sub-pixel / snap rounding
+    let target: HTMLElement | undefined;
+    if (dir > 0) {
+      target = els.find((el) => el.offsetLeft > cur + EPS);
+    } else {
+      const before = els.filter((el) => el.offsetLeft < cur - EPS);
+      target = before[before.length - 1];
+    }
+    track.scrollTo({ left: target ? target.offsetLeft : 0, behavior: "smooth" });
+  }, []);
+
+  // Recompute dot highlight + arrow-disable state from scroll position.
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
     let raf = 0;
+    const measure = () => {
+      const els = slideEls();
+      const centre = track.scrollLeft + track.clientWidth / 2;
+      let best = 0;
+      let bestDist = Infinity;
+      els.forEach((el, i) => {
+        const d = Math.abs(el.offsetLeft + el.clientWidth / 2 - centre);
+        if (d < bestDist) {
+          bestDist = d;
+          best = i;
+        }
+      });
+      setActive(best);
+      setAtStart(track.scrollLeft <= 1);
+      setAtEnd(track.scrollLeft + track.clientWidth >= track.scrollWidth - 1);
+    };
     const onScroll = () => {
       cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const els = track.querySelectorAll<HTMLElement>("[data-slide]");
-        const centre = track.scrollLeft + track.clientWidth / 2;
-        let best = 0;
-        let bestDist = Infinity;
-        els.forEach((el, i) => {
-          const c = el.offsetLeft + el.clientWidth / 2;
-          const d = Math.abs(c - centre);
-          if (d < bestDist) {
-            bestDist = d;
-            best = i;
-          }
-        });
-        setActive(best);
-      });
+      raf = requestAnimationFrame(measure);
     };
+    measure(); // initial (e.g. all slides fit -> next disabled)
     track.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
       track.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(raf);
     };
   }, []);
@@ -67,10 +98,10 @@ export default function Carousel({ label, slides }: CarouselProps) {
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowRight") {
       e.preventDefault();
-      goTo(active + 1);
+      step(1);
     } else if (e.key === "ArrowLeft") {
       e.preventDefault();
-      goTo(active - 1);
+      step(-1);
     }
   };
 
@@ -107,10 +138,10 @@ export default function Carousel({ label, slides }: CarouselProps) {
         <Button
           className="carousel__arrow"
           aria-label="Previous"
-          disabled={active === 0}
-          onClick={() => goTo(active - 1)}
+          disabled={atStart}
+          onClick={() => step(-1)}
         >
-          <span aria-hidden="true">‹</span>
+          <IconChevron className="carousel__chevron" />
         </Button>
 
         <Box className="carousel__dots" role="tablist" aria-label={`${label} slides`}>
@@ -127,12 +158,12 @@ export default function Carousel({ label, slides }: CarouselProps) {
         </Box>
 
         <Button
-          className="carousel__arrow"
+          className="carousel__arrow carousel__arrow--next"
           aria-label="Next"
-          disabled={active === count - 1}
-          onClick={() => goTo(active + 1)}
+          disabled={atEnd}
+          onClick={() => step(1)}
         >
-          <span aria-hidden="true">›</span>
+          <IconChevron className="carousel__chevron" />
         </Button>
       </Box>
 
