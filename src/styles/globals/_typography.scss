@@ -5,22 +5,38 @@
 
 $display: var(--font-fraunces), Georgia, serif;
 $inscription: var(--font-cinzel), serif;
-$body: var(--font-inter), -apple-system, system-ui, sans-serif;
+$body: var(--font-sans), -apple-system, system-ui, sans-serif;
 $urdu: var(--font-naskh), serif;
 
+// Weight roles. Pinned here so "bold vs normal" is a token decision, not an
+// ad-hoc call at each call site.
+$weight-body: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
 // Fluid heading sizes
-$size-h-xl: clamp(2.4rem, 5.4vw, 4rem);
-$size-h-lg: clamp(1.9rem, 3.6vw, 2.9rem);
-$size-h-md: clamp(1.35rem, 2.4vw, 1.8rem);
+$size-h-xl: clamp(2.6rem, 5.6vw, 4.2rem); // hero h1
+$size-h-lg: clamp(1.95rem, 3.6vw, 2.9rem); // section h2
+$size-h-md: clamp(1.35rem, 2.4vw, 1.8rem); // sub-heads
+
+// Body type scale. Body sizes were previously set inline per block; these are
+// the shared steps the new home sections pull from.
+$size-lead: 1.12rem; // section intros, hero sub
+$size-body: 1rem; // default paragraph
+$size-sm: 0.9rem; // card copy, captions
+$size-xs: 0.8rem; // labels, meta
 
 // Shared by the legacy classes in utils/_typography.scss and the BEM classes
 // in components/common/_typography.scss, so the two can never drift.
+// Weight 700 + tighter tracking is what makes Fraunces read as a distinct
+// display voice rather than a heavier body face.
 @mixin heading-base {
   font-family: $display;
-  font-weight: 600;
-  line-height: 1.12;
+  font-weight: $weight-bold;
+  line-height: 1.1;
   color: color.$green-900;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 @mixin eyebrow {

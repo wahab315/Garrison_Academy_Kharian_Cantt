@@ -1,10 +1,26 @@
 // Genuine single-purpose utilities only. Anything that describes a component
 // belongs in `styles/components/`.
 
+// These predate the 8pt scale in globals/_layout.scss and are still rendered
+// by the untouched pages, so their exact values stay. New work should reach
+// for the $space-* tokens instead.
 .mt {
   margin-top: 18px;
 }
 
 .mt2 {
   margin-top: 30px;
+}
+
+// Visible to assistive tech only. Used for carousel live-region announcements.
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

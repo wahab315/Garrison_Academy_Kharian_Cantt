@@ -1,21 +1,32 @@
 import type { Metadata } from "next";
-import { Cinzel, Fraunces, Inter, Noto_Naskh_Arabic } from "next/font/google";
+import {
+  Cinzel,
+  Fraunces,
+  Instrument_Sans,
+  Noto_Naskh_Arabic,
+} from "next/font/google";
 import "@/styles/main.scss";
 
+// Display voice: headings only. `opsz` lets Fraunces set optically larger at
+// the big sizes, which is what separates it from the body face at a glance.
 const fraunces = Fraunces({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-fraunces",
   display: "swap",
 });
+// Inscription voice: eyebrows, stat labels, numerals. Echoes the crest lettering.
 const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-cinzel",
   display: "swap",
 });
-const inter = Inter({
+// Body / UI voice. Replaces Inter -- Instrument Sans carries more character
+// against Fraunces, so the page no longer reads as one undifferentiated face.
+const sans = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
 });
 const naskh = Noto_Naskh_Arabic({
@@ -48,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${cinzel.variable} ${inter.variable} ${naskh.variable}`}
+      className={`${fraunces.variable} ${cinzel.variable} ${sans.variable} ${naskh.variable}`}
     >
       <body>{children}</body>
     </html>

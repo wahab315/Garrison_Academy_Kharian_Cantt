@@ -2,146 +2,219 @@
 
 .hero {
   position: relative;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
+  // Not clipped: the stat rail deliberately pokes past the lower edge. The
+  // laurel bleeds right but the global `body { overflow-x: hidden }` catches it.
+  background:
+    radial-gradient(
+      120% 90% at 82% 12%,
+      rgba(g.$gold-400, 0.18),
+      transparent 60%
+    ),
+    linear-gradient(160deg, g.$green-800, g.$green-900 65%);
   color: g.$white;
-  overflow: hidden;
+}
 
-  .slides {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
+.hero__tex {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Ccircle cx='2' cy='2' r='1.1' fill='%23ffffff22'/%3E%3C/svg%3E");
+}
 
-  .slide {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    background-color: g.$green-900;
-    opacity: 0;
-    transition: opacity 1.3s ease;
-
-    &.active {
-      opacity: 1;
-      animation: kbz 7s ease forwards;
-    }
-  }
-
-  .tex {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    opacity: 0.5;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Ccircle cx='2' cy='2' r='1.1' fill='%23ffffff22'/%3E%3C/svg%3E");
-  }
-
-  .ov {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
-      90deg,
-      rgba(g.$green-900, 0.95) 0%,
-      rgba(g.$green-900, 0.82) 34%,
-      rgba(g.$green-900, 0.4) 72%,
-      rgba(g.$green-900, 0.14) 100%
-    );
-  }
-
-  .container {
-    z-index: 3;
-    display: block;
-    padding: 104px 24px 112px;
-    width: 100%;
-  }
-
-  .hcopy {
-    max-width: 640px;
-  }
-
-  .text__eyebrow {
-    color: g.$gold-300;
-
-    &::before {
-      background: g.$gold-400;
-    }
-  }
-
-  h1 {
-    color: g.$white;
-    margin: 18px 0 14px;
-
-    .g {
-      color: g.$gold-300;
-    }
-  }
-
-  .motto {
-    font-family: g.$urdu;
-    font-size: 1.35rem;
-    color: g.$gold-300;
-    margin-bottom: 4px;
-    margin-left: 4rem;
-    padding: 2rem 0rem;
-  }
-
-  .motto-tr {
-    font-style: italic;
-    font-family: g.$display;
-    color: g.$motto-translation;
-    font-size: 0.95rem;
-    margin-bottom: 22px;
-  }
-
-  p.hsub {
-    color: g.$white-a90;
-    font-size: 1.08rem;
-    max-width: 48ch;
-    margin-bottom: 30px;
-  }
+// Crest laurel, oversized and faint, sitting behind the framed photo.
+.hero__laurel {
+  position: absolute;
+  top: 50%;
+  right: -4%;
+  width: 460px;
+  height: 460px;
+  transform: translateY(-58%);
+  color: g.$gold-400;
+  opacity: 0.14;
+  pointer-events: none;
 
   @include g.respond(tab-mid) {
-    min-height: 520px;
+    display: none;
+  }
+}
 
-    .container {
-      padding: 74px 24px 84px;
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: g.$space-8;
+  padding-top: g.$space-12;
+  padding-bottom: g.$space-12;
+
+  @include g.respond(tab-mid) {
+    grid-template-columns: 1fr;
+    gap: g.$space-7;
+    padding-top: g.$space-9;
+    padding-bottom: g.$space-10;
+  }
+}
+
+.hero__copy {
+  max-width: 34rem;
+
+  // Staggered mount-in. `fade` is disabled wholesale under reduced motion.
+  > * {
+    animation: fade 0.6s ease both;
+  }
+
+  @for $i from 1 through 6 {
+    > *:nth-child(#{$i}) {
+      animation-delay: #{0.06s * $i};
     }
   }
 }
 
-.hero-cta {
+.hero__eyebrow {
+  color: g.$gold-300;
+
+  &::before {
+    background: g.$gold-400;
+  }
+}
+
+.hero__title {
+  color: g.$white;
+  font-size: g.$size-h-xl;
+  margin: g.$space-4 0 g.$space-5;
+
+  .hero__accent {
+    color: g.$gold-300;
+  }
+}
+
+.hero__motto {
+  font-family: g.$urdu;
+  font-size: 1.5rem;
+  line-height: 1.9;
+  color: g.$gold-300;
+  margin-bottom: g.$space-2;
+}
+
+.hero__motto-tr {
+  font-family: g.$display;
+  font-style: italic;
+  color: g.$motto-translation;
+  font-size: 0.98rem;
+  margin-bottom: g.$space-5;
+}
+
+.hero__sub {
+  color: g.$white-a90;
+  font-size: g.$size-lead;
+  line-height: 1.7;
+  max-width: 42ch;
+  margin-bottom: g.$space-6;
+}
+
+.hero__cta {
   display: flex;
-  justify-content: flex-start;
-  gap: 14px;
+  gap: g.$space-3;
   flex-wrap: wrap;
 }
 
-.hero-dots {
-  position: absolute;
-  z-index: 4;
-  bottom: 26px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+.hero__media {
+  position: relative;
+  z-index: 2;
+  animation: fade 0.7s ease 0.15s both;
 
-  .dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: g.$white-a42;
-    transition: 0.25s;
-    cursor: pointer;
-    border: none;
-    padding: 0;
+  @include g.respond(tab-mid) {
+    order: -1; // photo above the copy on narrow screens
+    max-width: 24rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
 
-    &.active {
-      width: 26px;
-      border-radius: 5px;
-      background: g.$gold-400;
+.hero__frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: calc(#{g.$radius} + 6px);
+  overflow: hidden;
+  border: 3px solid rgba(g.$gold-400, 0.55);
+  box-shadow: g.$shadow-lg;
+  // Fallback shown until a real photo lands (or if one 404s).
+  background: linear-gradient(160deg, g.$green-700, g.$green-900);
+}
+
+.hero__img {
+  object-fit: cover;
+}
+
+// The rail straddles the seam between the hero and the section below it.
+.hero__rail-wrap {
+  position: relative;
+  z-index: 5;
+  transform: translateY(50%);
+  margin-top: calc(-1 * #{g.$space-8});
+
+  @include g.respond(tab-mid) {
+    transform: translateY(40%);
+  }
+}
+
+.stat-rail {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  box-shadow: g.$shadow-lg;
+  overflow: hidden;
+
+  @include g.respond(mobile-lg) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stat-rail__cell {
+  padding: g.$space-5 g.$space-4;
+  text-align: center;
+  border-right: 1px solid g.$line;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  @include g.respond(mobile-lg) {
+    &:nth-child(2) {
+      border-right: none;
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-bottom: 1px solid g.$line;
     }
   }
+}
+
+.stat-rail__value {
+  display: block;
+  font-family: g.$display;
+  font-weight: g.$weight-bold;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1;
+  color: g.$green-700;
+}
+
+.stat-rail__label {
+  display: block;
+  margin-top: g.$space-2;
+  font-family: g.$inscription;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: g.$ink-soft;
+}
+
+// The rail's downward overlap needs breathing room on the section that follows.
+.hero + * {
+  padding-top: g.$space-10;
 }

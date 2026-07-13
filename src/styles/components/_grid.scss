@@ -1,31 +1,10 @@
-@use "../globals" as g;
+// (No globals used here now that the column logic moved to common/_grid.scss.)
 
-// Becomes the <Grid version="..."> primitive in phase 5.
+// Base grid: display + gap. The column-count modifiers (`.grid__version--N`)
+// and their responsive collapse live in components/common/_grid.scss, next to
+// the <Grid> primitive that renders them. The old `.g2`/`.g3`/`.g4` rules that
+// once sat here were dead -- <Grid> never emitted those class names.
 .grid {
   display: grid;
   gap: 22px;
-}
-
-// The column counts are generated rather than written three times.
-$_grid-versions: 2, 3, 4;
-
-@each $n in $_grid-versions {
-  .g#{$n} {
-    grid-template-columns: repeat($n, 1fr);
-  }
-}
-
-@include g.respond(tab-land) {
-  .g3,
-  .g4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@include g.respond(mobile-lg) {
-  .g2,
-  .g3,
-  .g4 {
-    grid-template-columns: 1fr;
-  }
 }

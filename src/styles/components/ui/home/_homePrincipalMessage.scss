@@ -1,29 +1,85 @@
 @use "../../../globals" as g;
 
-.home-principal__byline {
-  display: flex;
+.principal {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: g.$space-8;
   align-items: center;
-  gap: 14px;
+
+  @include g.respond(tab-sm) {
+    grid-template-columns: 1fr;
+    gap: g.$space-6;
+  }
 }
 
-.home-principal__name {
+.principal__media {
+  position: relative;
+}
+
+.principal__frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: g.$radius;
+  overflow: hidden;
+  border: 1px solid g.$line-strong;
+  box-shadow: g.$shadow-md;
+  background: linear-gradient(160deg, g.$green-700, g.$green-900);
+}
+
+.principal__img {
+  object-fit: cover;
+}
+
+// Name plate, overlapping the lower-left of the portrait.
+.principal__plate {
+  position: absolute;
+  left: g.$space-4;
+  bottom: calc(-1 * #{g.$space-4});
+  display: flex;
+  align-items: center;
+  gap: g.$space-3;
+  padding: g.$space-3 g.$space-4;
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius-sm;
+  box-shadow: g.$shadow-md;
+}
+
+.principal__mark {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  color: g.$gold-600;
+}
+
+.principal__name {
   display: block;
   font-family: g.$display;
-  font-size: 1.1rem;
+  font-weight: g.$weight-semibold;
+  font-size: 1.05rem;
   color: g.$green-900;
 }
 
-.home-principal__role {
+.principal__role {
   display: block;
-  font-size: 0.8rem;
-  color: g.$gold-600;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.74rem;
+  color: g.$ink-soft;
 }
 
-// `.btn__primary` sets no display, so the anchor is inline; the original
-// carried style={{ display: "inline-block" }} here.
-.home-principal__cta {
+.principal__heading {
+  margin: g.$space-3 0 g.$space-4;
+}
+
+.principal__para {
+  color: g.$ink-soft;
+  line-height: 1.75;
+
+  & + & {
+    margin-top: g.$space-4;
+  }
+}
+
+.principal__cta {
   display: inline-block;
+  margin-top: g.$space-6;
 }

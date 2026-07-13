@@ -1,25 +1,20 @@
+import { Assets } from "@/data/assets";
 import { Routes } from "@/data/routes";
-import type { BusinessStat } from "@/data/types/type.business-stats";
-import type { RichText } from "@/data/types/type.business-rich-text";
 
 export const homePrincipalMessageContent = {
-  eyebrow: "From the Principal's Desk",
-  heading: "Building character before\nbuilding careers.",
-  description:
-    "At Garrison Academy Kharian Cantt, we believe education is more than examinations. The ability to reason with clarity, to lead with character, and to embrace change with resilience will remain timeless — that is the character we build before careers.",
-  principal: { initials: "SR", name: "Mrs Shahida Rehman", role: "Principal GAK" },
+  eyebrow: "From the Principal's desk",
+  heading: "We build the child,\nnot only the result.",
+  // Each string is one paragraph. First person, plain-spoken -- this should
+  // read like the Principal actually said it.
+  message: [
+    "Parents hand us the most important years of their children's lives, and we do not take that lightly. Marks matter, and our board results show we take them seriously. But a confident, honest, well-mannered young person is what a family carries home long after the certificate is framed.",
+    "The best way to know a school is to walk through it. Come and see the campus, sit in on a class, and meet the people who will teach your child before you decide.",
+  ],
+  principal: {
+    name: "Mrs Shahida Rehman",
+    role: "Principal, Garrison Academy Kharian Cantt",
+    image: Assets.home.principal,
+    imageAlt: "Principal, Garrison Academy Kharian Cantt",
+  },
   cta: { label: "Read all messages", href: Routes.messages },
-  stats: [
-    { value: "40", label: "Years of service" },
-    { value: "98%", label: "Board pass rate" },
-    { value: "26", label: "Clubs & societies" },
-    { value: "12", label: "Sports disciplines" },
-  ] satisfies BusinessStat[],
-  note: [
-    { text: "🎓 GAK runs two parallel streams — " },
-    { text: "APSACS (FBISE)", bold: true },
-    { text: " and " },
-    { text: "APSIS (Cambridge)", bold: true },
-    { text: " — under one disciplined campus culture." },
-  ] satisfies RichText,
 } as const;

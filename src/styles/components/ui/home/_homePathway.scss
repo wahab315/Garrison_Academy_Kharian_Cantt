@@ -1,0 +1,107 @@
+@use "../../../globals" as g;
+
+.pathway-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  overflow: hidden;
+  box-shadow: g.$shadow-sm;
+  transition:
+    transform g.$dur g.$ease-out,
+    box-shadow g.$dur g.$ease-out,
+    border-color g.$dur g.$ease-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: g.$shadow-card-hover;
+    border-color: g.$line-strong;
+
+    .pathway-card__img {
+      transform: scale(1.05);
+    }
+
+    .pathway-card__more {
+      gap: g.$space-2;
+    }
+  }
+}
+
+.pathway-card__media {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: linear-gradient(150deg, g.$green-700, g.$green-900);
+}
+
+.pathway-card__img {
+  object-fit: cover;
+  transition: transform 0.4s g.$ease-out;
+}
+
+.pathway-card__step {
+  position: absolute;
+  top: g.$space-3;
+  left: g.$space-3;
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 g.$space-2;
+  font-family: g.$inscription;
+  font-weight: g.$weight-bold;
+  font-size: 0.86rem;
+  color: g.$gold-300;
+  background: rgba(g.$green-900, 0.72);
+  border: 1px solid rgba(g.$gold-400, 0.4);
+  border-radius: g.$radius-sm;
+  backdrop-filter: blur(2px);
+}
+
+.pathway-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: g.$space-5;
+}
+
+.pathway-card__sub {
+  font-family: g.$inscription;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: g.$gold-600;
+  margin-bottom: g.$space-2;
+}
+
+.pathway-card__name {
+  font-family: g.$display;
+  font-weight: g.$weight-bold;
+  font-size: 1.2rem;
+  color: g.$green-900;
+  margin-bottom: g.$space-2;
+}
+
+.pathway-card__blurb {
+  font-size: g.$size-sm;
+  line-height: 1.6;
+  color: g.$ink-soft;
+}
+
+.pathway-card__more {
+  margin-top: auto;
+  padding-top: g.$space-4;
+  display: inline-flex;
+  align-items: center;
+  gap: g.$space-1;
+  font-family: g.$inscription;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: g.$gold-600;
+  transition: gap g.$dur g.$ease-out;
+}

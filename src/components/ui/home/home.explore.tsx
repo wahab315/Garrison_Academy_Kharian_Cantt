@@ -1,11 +1,12 @@
-import BusinessCardGrid from "@/components/ui/business/business.card-grid";
+import HomeCardGrid from "@/components/ui/home/home.card-grid";
 import { BusinessSection } from "@/components/ui/business/business.section";
-import type { BusinessCardGridProps } from "@/data/types/type.business-card-grid";
+import type { HomeCardGridProps } from "@/data/types/type.home-card";
 
-export default function HomeExplore(props: BusinessCardGridProps) {
+/** The full 16-tile site index. Compact variant so the grid stays scannable. */
+export default function HomeExplore(props: HomeCardGridProps) {
   return (
-    <BusinessSection>
-      <BusinessCardGrid {...props} titleSize="sm" />
+    <BusinessSection alt>
+      <HomeCardGrid {...props} variant="compact" />
     </BusinessSection>
   );
 }
