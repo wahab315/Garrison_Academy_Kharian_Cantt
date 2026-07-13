@@ -67,11 +67,14 @@ export default function Carousel({ label, slides }: CarouselProps) {
     let raf = 0;
     const measure = () => {
       const els = slideEls();
-      const centre = track.scrollLeft + track.clientWidth / 2;
+      // The "current" slide is the one aligned to the left edge -- the same
+      // slide the arrows snap to -- so the dot highlight tracks the scroll
+      // position (dot 1 lit at the start).
+      const edge = track.scrollLeft;
       let best = 0;
       let bestDist = Infinity;
       els.forEach((el, i) => {
-        const d = Math.abs(el.offsetLeft + el.clientWidth / 2 - centre);
+        const d = Math.abs(el.offsetLeft - edge);
         if (d < bestDist) {
           bestDist = d;
           best = i;
