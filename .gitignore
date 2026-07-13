@@ -5,7 +5,6 @@
 .DS_Store
 *.pem
 npm-debug.log*
-.env*
 next-env.d.ts
 .vercel
 /.turbo
@@ -14,3 +13,7 @@ next-env.d.ts
 /.refactor-baseline
 /.refactor-shots
 tsconfig.tsbuildinfo
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+config.bat
