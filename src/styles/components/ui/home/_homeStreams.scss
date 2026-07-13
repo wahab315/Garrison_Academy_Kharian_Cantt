@@ -1,0 +1,102 @@
+@use "../../../globals" as g;
+
+.streams {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: g.$space-5;
+
+  @include g.respond(tab-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stream {
+  display: flex;
+  flex-direction: column;
+  padding: g.$space-6;
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  box-shadow: g.$shadow-sm;
+
+  @include g.lift(-4px);
+  @include g.icon-hover;
+}
+
+.stream__head {
+  display: flex;
+  align-items: center;
+  gap: g.$space-4;
+  margin-bottom: g.$space-4;
+}
+
+.stream__ic {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  color: g.$white;
+  background: linear-gradient(135deg, g.$green-700, g.$green-500);
+  box-shadow: g.$shadow-green-icon;
+
+  svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.stream__tag {
+  display: inline-block;
+  font-family: g.$inscription;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: g.$gold-600;
+  margin-bottom: g.$space-1;
+}
+
+.stream__name {
+  font-family: g.$display;
+  font-weight: g.$weight-bold;
+  font-size: 1.4rem;
+  color: g.$green-900;
+}
+
+.stream__desc {
+  color: g.$ink-soft;
+  line-height: 1.65;
+  margin-bottom: g.$space-4;
+}
+
+.stream__points {
+  display: flex;
+  flex-direction: column;
+  gap: g.$space-3;
+  margin-bottom: g.$space-5;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: g.$space-3;
+    font-size: g.$size-sm;
+    color: g.$ink;
+  }
+}
+
+.stream__check {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: g.$green-600;
+}
+
+.stream__cta {
+  align-self: flex-start;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: g.$space-2;
+}

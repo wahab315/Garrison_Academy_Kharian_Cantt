@@ -1,64 +1,64 @@
+import Image from "next/image";
 import Box from "@/common/box";
 import Button from "@/common/button";
 import Lines from "@/common/lines";
 import Typography from "@/common/typography";
-import BusinessNote from "@/components/ui/business/business.note";
-import BusinessRichText from "@/components/ui/business/business.rich-text";
+import { Reveal } from "@/common/reveal";
 import { BusinessSection } from "@/components/ui/business/business.section";
-import BusinessStats from "@/components/ui/business/business.stats";
-import type { homePrincipalMessageContent } from "@/data/content/home/content.home-principal-message";
+import IconTorch from "@/assets/home/icon.torch";
+import { homePrincipalMessageContent } from "@/data/content/home/content.home-principal-message";
 
 export type HomePrincipalMessageProps = typeof homePrincipalMessageContent;
 
+/** The Principal's message: portrait beside a short, personal note. */
 export default function HomePrincipalMessage({
   eyebrow,
   heading,
-  description,
+  message,
   principal,
   cta,
-  stats,
-  note,
 }: HomePrincipalMessageProps) {
   return (
-    <BusinessSection alt containerClassName="split">
-      <Box>
-        <Typography as="span" classStyle="eyebrow">
-          {eyebrow}
-        </Typography>
-        <Typography as="h2" classStyle="primary" className="mt">
-          <Lines text={heading} />
-        </Typography>
-        <Typography as="p" classStyle="large" className="mt">
-          {description}
-        </Typography>
-
-        <Box className="mt2 home-principal__byline">
-          <Box className="person person--inline">
-            <Box className="ph" aria-hidden="true">
-              {principal.initials}
-            </Box>
-          </Box>
+    <BusinessSection alt containerClassName="principal">
+      <Reveal className="principal__media">
+        <Box className="principal__frame">
+          <Image
+            src={principal.image}
+            alt={principal.imageAlt}
+            fill
+            sizes="(max-width: 840px) 100vw, 40vw"
+            className="principal__img"
+          />
+        </Box>
+        <Box className="principal__plate">
+          <IconTorch className="principal__mark" />
           <Box>
-            <Typography as="span" className="home-principal__name">
+            <Typography as="span" className="principal__name">
               {principal.name}
             </Typography>
-            <Typography as="span" className="home-principal__role">
+            <Typography as="span" className="principal__role">
               {principal.role}
             </Typography>
           </Box>
         </Box>
+      </Reveal>
 
-        <Button classStyle="primary" className="mt2 home-principal__cta" href={cta.href}>
+      <Reveal className="principal__body">
+        <Typography as="span" classStyle="eyebrow">
+          {eyebrow}
+        </Typography>
+        <Typography as="h2" classStyle="primary" className="principal__heading">
+          <Lines text={heading} />
+        </Typography>
+        {message.map((para) => (
+          <Typography as="p" key={para.slice(0, 32)} className="principal__para">
+            {para}
+          </Typography>
+        ))}
+        <Button classStyle="primary" href={cta.href} className="principal__cta">
           {cta.label}
         </Button>
-      </Box>
-
-      <Box>
-        <BusinessStats stats={stats} compact />
-        <BusinessNote className="mt">
-          <BusinessRichText runs={note} />
-        </BusinessNote>
-      </Box>
+      </Reveal>
     </BusinessSection>
   );
 }

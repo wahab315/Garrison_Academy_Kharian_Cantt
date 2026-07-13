@@ -1,5 +1,5 @@
 // Keyframes are global regardless of where they are declared, so they live
-// together. Consumers: fade -> .view / .tabpane, kbz -> hero slide,
+// together. Consumers: fade -> .view / .tabpane / hero mount,
 // marq -> notification ticker, bob -> contact map pin.
 
 @keyframes fade {
@@ -11,16 +11,6 @@
   to {
     opacity: 1;
     transform: none;
-  }
-}
-
-@keyframes kbz {
-  from {
-    transform: scale(1.06);
-  }
-
-  to {
-    transform: scale(1.14);
   }
 }
 
@@ -45,5 +35,14 @@
   * {
     animation: none !important;
     transition: none !important;
+  }
+
+  // framer-motion sets an inline `opacity: 0` during SSR (it cannot read the
+  // media query on the server), which would leave reveal content blank for
+  // reduced-motion users until hydration. Force it visible immediately. The
+  // inline style loses to this `!important`.
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

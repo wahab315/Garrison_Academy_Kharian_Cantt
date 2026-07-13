@@ -1,0 +1,93 @@
+@use "../../globals" as g;
+
+.carousel {
+  position: relative;
+}
+
+.carousel__track {
+  position: relative; // slides' offsetParent, for scroll maths
+  display: flex;
+  gap: g.$space-5;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 2px;
+  // Room for the card lift-shadow, and hide the native scrollbar.
+  padding: g.$space-2 2px g.$space-5;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: g.$focus-ring;
+    border-radius: g.$radius;
+  }
+}
+
+.carousel__slide {
+  flex: 0 0 auto;
+  // Fixed on wide screens; on narrow ones 85% peeks the next card.
+  width: min(340px, 85%);
+  scroll-snap-align: start;
+}
+
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: g.$space-4;
+  margin-top: g.$space-5;
+}
+
+.carousel__arrow {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: g.$radius-pill;
+  border: 1.5px solid g.$line-strong;
+  background: g.$paper;
+  color: g.$green-800;
+  font-size: 1.4rem;
+  line-height: 1;
+  transition:
+    background g.$dur g.$ease-out,
+    color g.$dur g.$ease-out,
+    border-color g.$dur g.$ease-out,
+    transform g.$dur g.$ease-out;
+
+  &:hover:not(:disabled) {
+    background: g.$green-700;
+    border-color: g.$green-700;
+    color: g.$white;
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: g.$space-2;
+}
+
+.carousel__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: g.$radius-pill;
+  background: g.$line-strong;
+  transition:
+    width g.$dur g.$ease-out,
+    background g.$dur g.$ease-out;
+
+  &.is-active {
+    width: 26px;
+    background: g.$gold-500;
+  }
+}

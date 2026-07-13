@@ -18,6 +18,7 @@
       "@/common/*": ["./src/components/common/*"],
       "@/features/*": ["./src/components/features/*"],
       "@/ui/*": ["./src/components/ui/*"],
+      "@/assets/*": ["./src/assets/*"],
       "@/data/*": ["./src/data/*"],
       "@/styles/*": ["./src/styles/*"],
       "@/*": ["./src/*"]

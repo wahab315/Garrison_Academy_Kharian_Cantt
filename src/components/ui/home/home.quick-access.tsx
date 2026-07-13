@@ -1,11 +1,12 @@
-import BusinessCardGrid from "@/components/ui/business/business.card-grid";
+import HomeCardGrid from "@/components/ui/home/home.card-grid";
 import { BusinessSection } from "@/components/ui/business/business.section";
-import type { BusinessCardGridProps } from "@/data/types/type.business-card-grid";
+import type { HomeCardGridProps } from "@/data/types/type.home-card";
 
-export default function HomeQuickAccess(props: BusinessCardGridProps) {
+/** "Start here" — the four things parents reach for first. */
+export default function HomeQuickAccess(props: HomeCardGridProps) {
   return (
-    <BusinessSection tight>
-      <BusinessCardGrid {...props} />
+    <BusinessSection>
+      <HomeCardGrid {...props} />
     </BusinessSection>
   );
 }

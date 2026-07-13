@@ -9,6 +9,28 @@ $radius-pill: 999px;
 $max-width: 1200px;
 $gutter: 24px;
 
+// ---------------------------------------------------------------------------
+// Spacing. An 8pt scale. `.mt` / `.mt2` (18/30px) predate this and are kept as
+// aliases in utils/_utils.scss so the untouched pages don't shift; new work
+// uses these tokens.
+// ---------------------------------------------------------------------------
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 40px;
+$space-8: 48px;
+$space-9: 56px;
+$space-10: 64px;
+$space-11: 80px;
+$space-12: 96px;
+
+// Section vertical rhythm. One knob for the whole home page.
+$section-y: $space-12;
+$section-y-mobile: $space-8;
+
 // Elevation
 $shadow-sm:
   0 1px 2px rgba(color.$green-900, 0.06),
@@ -22,5 +44,37 @@ $shadow-gold-hover: 0 8px 22px rgba(color.$gold-600, 0.45);
 $shadow-gold-lg: 0 8px 24px rgba(color.$gold-600, 0.4);
 $shadow-green-icon: 0 6px 16px rgba(color.$green-700, 0.28);
 $shadow-green-btn: 0 8px 22px rgba(color.$green-700, 0.3);
+$shadow-card-hover: 0 18px 44px rgba(color.$green-900, 0.14);
 $focus-ring: 0 0 0 3px rgba(color.$green-600, 0.13);
 $logo-shadow: drop-shadow(0 2px 4px rgba(color.$green-900, 0.18));
+
+// ---------------------------------------------------------------------------
+// Shared motion. One easing + duration everywhere so hovers feel like one
+// system. Consumers: home cards, buttons, carousel controls, icon tiles.
+// ---------------------------------------------------------------------------
+$ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+$dur: 0.22s;
+
+// Card / tile lift on hover.
+@mixin lift($y: -4px) {
+  transition:
+    transform $dur $ease-out,
+    box-shadow $dur $ease-out,
+    border-color $dur $ease-out;
+
+  &:hover {
+    transform: translateY($y);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+// Icon tile flourish. Applied to the parent; animates a nested `svg`.
+@mixin icon-hover {
+  svg {
+    transition: transform $dur $ease-out;
+  }
+
+  &:hover svg {
+    transform: scale(1.08) rotate(-3deg);
+  }
+}

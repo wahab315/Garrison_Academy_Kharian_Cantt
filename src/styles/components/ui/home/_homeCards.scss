@@ -1,0 +1,95 @@
+@use "../../../globals" as g;
+
+// The reveal wrapper around each card is a grid item; the card fills it so
+// every tile in a row matches height.
+.home-cards > * {
+  display: flex;
+}
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  padding: g.$space-6;
+  box-shadow: g.$shadow-sm;
+
+  @include g.lift(-6px);
+  @include g.icon-hover;
+
+  &.link:hover {
+    border-color: g.$line-strong;
+
+    .more {
+      gap: g.$space-2;
+    }
+  }
+
+  .ic {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    margin-bottom: g.$space-4;
+    color: g.$white;
+    background: linear-gradient(135deg, g.$green-700, g.$green-500);
+    box-shadow: g.$shadow-green-icon;
+
+    svg {
+      width: 23px;
+      height: 23px;
+    }
+  }
+
+  h3 {
+    font-size: 1.14rem;
+    font-weight: g.$weight-semibold;
+    color: g.$green-900;
+    margin-bottom: g.$space-2;
+  }
+
+  p {
+    font-size: g.$size-sm;
+    line-height: 1.6;
+    color: g.$ink-soft;
+  }
+
+  // Pushes the affordance to the card's foot so ragged copy still aligns.
+  .more {
+    margin-top: auto;
+    padding-top: g.$space-3;
+    display: inline-flex;
+    align-items: center;
+    gap: g.$space-1;
+    font-family: g.$inscription;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: g.$gold-600;
+    transition: gap g.$dur g.$ease-out;
+  }
+}
+
+// Denser tiles for the 16-card explore index.
+.home-cards--compact .home-card {
+  padding: g.$space-5;
+
+  .ic {
+    width: 40px;
+    height: 40px;
+    margin-bottom: g.$space-3;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  h3 {
+    font-size: 1.02rem;
+  }
+}

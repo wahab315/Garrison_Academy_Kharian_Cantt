@@ -1,0 +1,75 @@
+@use "../../../globals" as g;
+
+.campus-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: g.$paper;
+  border: 1px solid g.$line;
+  border-radius: g.$radius;
+  overflow: hidden;
+  box-shadow: g.$shadow-sm;
+  transition:
+    transform g.$dur g.$ease-out,
+    box-shadow g.$dur g.$ease-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: g.$shadow-card-hover;
+
+    .campus-card__img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.campus-card__media {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: linear-gradient(150deg, g.$green-700, g.$green-900);
+}
+
+.campus-card__img {
+  object-fit: cover;
+  transition: transform 0.4s g.$ease-out;
+}
+
+.campus-card__tag {
+  position: absolute;
+  top: g.$space-3;
+  left: g.$space-3;
+  padding: g.$space-1 g.$space-3;
+  font-family: g.$inscription;
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: g.$green-900;
+  background: g.$gold-300;
+  border-radius: g.$radius-pill;
+}
+
+.campus-card__body {
+  padding: g.$space-5;
+}
+
+.campus-card__title {
+  font-family: g.$display;
+  font-weight: g.$weight-bold;
+  font-size: 1.15rem;
+  color: g.$green-900;
+  margin-bottom: g.$space-2;
+}
+
+.campus-card__desc {
+  font-size: g.$size-sm;
+  line-height: 1.6;
+  color: g.$ink-soft;
+}
+
+.campus-foot {
+  display: flex;
+  justify-content: center;
+  margin-top: g.$space-7;
+}

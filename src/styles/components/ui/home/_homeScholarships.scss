@@ -1,0 +1,124 @@
+@use "../../../globals" as g;
+
+.schol {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: g.$space-8;
+  align-items: center;
+  padding: g.$space-9 g.$space-8;
+  border-radius: g.$radius;
+  color: g.$white;
+  background:
+    radial-gradient(
+      90% 120% at 90% 10%,
+      rgba(g.$gold-400, 0.2),
+      transparent 55%
+    ),
+    linear-gradient(150deg, g.$green-800, g.$green-900);
+  box-shadow: g.$shadow-lg;
+
+  @include g.respond(tab-sm) {
+    grid-template-columns: 1fr;
+    gap: g.$space-6;
+    padding: g.$space-7 g.$space-5;
+  }
+}
+
+.schol__laurel {
+  position: absolute;
+  right: -40px;
+  bottom: -60px;
+  width: 320px;
+  height: 320px;
+  color: g.$gold-400;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.schol__intro {
+  position: relative;
+  z-index: 1;
+}
+
+.schol__eyebrow {
+  color: g.$gold-300;
+
+  &::before {
+    background: g.$gold-400;
+  }
+}
+
+.schol__heading {
+  color: g.$white;
+  margin: g.$space-3 0 g.$space-4;
+}
+
+.schol__desc {
+  color: g.$on-dark;
+  line-height: 1.7;
+  max-width: 46ch;
+  margin-bottom: g.$space-6;
+}
+
+.schol__cta {
+  display: inline-block;
+}
+
+.schol__list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: g.$space-4;
+}
+
+.schol__item {
+  display: flex;
+  align-items: flex-start;
+  gap: g.$space-4;
+  padding: g.$space-4;
+  border-radius: g.$radius-sm;
+  background: g.$white-a06;
+  border: 1px solid g.$white-a08;
+  transition:
+    background g.$dur g.$ease-out,
+    transform g.$dur g.$ease-out;
+
+  &:hover {
+    background: g.$white-a08;
+    transform: translateX(4px);
+  }
+}
+
+.schol__ic {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  color: g.$green-900;
+  background: linear-gradient(135deg, g.$gold-300, g.$gold-500);
+
+  svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+.schol__item-title {
+  display: block;
+  font-family: g.$display;
+  font-weight: g.$weight-semibold;
+  font-size: 1.02rem;
+  color: g.$white;
+  margin-bottom: 2px;
+}
+
+.schol__item-desc {
+  font-size: g.$size-sm;
+  line-height: 1.55;
+  color: g.$on-dark;
+}
