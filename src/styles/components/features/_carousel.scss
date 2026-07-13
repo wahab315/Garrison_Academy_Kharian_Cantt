@@ -50,8 +50,6 @@
   border: 1.5px solid g.$line-strong;
   background: g.$paper;
   color: g.$green-800;
-  font-size: 1.4rem;
-  line-height: 1;
   transition:
     background g.$dur g.$ease-out,
     color g.$dur g.$ease-out,
@@ -69,6 +67,16 @@
     opacity: 0.4;
     cursor: not-allowed;
   }
+}
+
+.carousel__chevron {
+  width: 20px;
+  height: 20px;
+}
+
+// The chevron points left by default; the "next" arrow is the same icon flipped.
+.carousel__arrow--next .carousel__chevron {
+  transform: rotate(180deg);
 }
 
 .carousel__dots {
